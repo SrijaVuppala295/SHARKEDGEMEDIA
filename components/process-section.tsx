@@ -1,0 +1,225 @@
+// components/process-section.tsx
+"use client"
+
+import { useState, useRef, useEffect } from "react"
+import Image from "next/image"
+import gsap from "gsap"
+import { RevealText } from "./reveal-text"
+import StarBorder from "./StarBorder"
+
+type Phase = {
+  id: number
+  tag: string
+  label: string
+  title: string
+  subtitle?: string
+  body: string[]
+  image: {
+    src: string
+    alt: string
+  }
+}
+
+const PHASES: Phase[] = [
+  {
+    id: 1,
+    tag: "Phase 01",
+    label: "Branding",
+    title: "Branding",
+    subtitle:
+      "We clarify what you stand for, who you serve, and why people should choose you instantly.",
+
+    body: [
+      "We define your unique message, visual identity and ideal client.",
+      "We ensure you attract and connect with the right audience from day one.",
+    ],
+    image: {
+      src: "/Process Imgs/1B.jpg",
+      alt: "Founder working on brand strategy with notebook and laptop",
+    },
+  },
+  {
+    id: 2,
+    tag: "Phase 02",
+    label: "Content Ideation",
+    title: "Content Ideation",
+    subtitle:
+      "We build a never-ending idea system that positions you as the obvious authority in your space.",
+    body: [
+      "We develop a complete content strategy and an endless pipeline of high-impact ideas designed to resonate with your audience.",
+      "We establish your authority and convert followers into clients.",
+    ],
+    image: {
+      src: "/Process Imgs/2B.png",
+      alt: "Team brainstorming content ideas with sticky notes",
+    },
+  },
+  {
+    id: 3,
+    tag: "Phase 03",
+    label: "Production & Filming",
+    title: "Production & Filming",
+    subtitle:
+      "We turn your thoughts into high-quality, scroll-stopping visual content that demands attention.",
+    body: [
+      "From compelling scripts to pro filming guidance, we help you create high-quality, scroll-stopping content.",
+      "We make you look like the expert you are.",
+    ],
+    image: {
+      src: "/Process Imgs/3B.png",
+      alt: "Creator filming content in a studio setup",
+    },
+  },
+  {
+    id: 4,
+    tag: "Phase 04",
+    label: "Editing & Distribution",
+    title: "Editing & Distribution",
+    subtitle:
+      "We amplify your content with precision editing and smart distribution so the right people see it.",
+    body: [
+      "This is where the magic happens. Our expert editors polish your content and our distribution strategy ensures it gets seen by the right people.",
+      "It drives maximum impact and ROI.",
+    ],
+    image: {
+      src: "/Process Imgs/4B.png",
+      alt: "Editor working on video timeline on a computer",
+    },
+  },
+]
+
+export function ProcessSection() {
+  const [activeId, setActiveId] = useState<number>(1)
+  const activePhase = PHASES.find((p) => p.id === activeId) ?? PHASES[0]
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setActiveId((current) => (current === PHASES.length ? 1 : current + 1))
+    }, 5000)
+    return () => clearInterval(interval)
+  }, [])
+
+  return (
+    <section
+      id="process"
+      className="relative w-full border-t border-white/5 px-4 py-20 sm:px-6 lg:px-8 lg:py-28 overflow-hidden"
+    >
+      {/* subtle background glow */}
+      <div className="pointer-events-none absolute inset-0 opacity-60">
+        <div className="absolute left-1/2 top-0 h-80 w-[46rem] -translate-x-1/2 rounded-full bg-[radial-gradient(circle_at_center,rgba(255,199,0,0.18),transparent_65%)] blur-3xl" />
+      </div>
+
+      <div className="relative mx-auto max-w-6xl space-y-10">
+        {/* Section label */}
+        <RevealText>
+          <StarBorder
+            as="div"
+            className="mb-6 mx-auto w-fit text-xs tracking-[0.2em] uppercase text-gray-400 hover:text-black transition-colors duration-300"
+            color="rgba(255, 255, 255, 0.2)"
+            speed="4s"
+            style={{
+              '--content-padding': '0.5rem 1.2rem',
+              '--star-hover-bg': 'linear-gradient(180deg, #F3DFA2 0%, #D4AF37 100%)',
+              '--star-hover-text': 'black',
+            } as React.CSSProperties}
+          >
+            OUR PROCESS
+          </StarBorder>
+        </RevealText>
+
+        {/* Main heading + intro copy */}
+        <div className="space-y-4 text-center flex flex-col items-center">
+          <RevealText>
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold text-white">
+              Here&apos;s exactly{" "}
+              <span className="bg-gradient-to-r from-white via-white to-[#ffc700] bg-clip-text text-transparent">
+                how we do it.
+              </span>
+            </h2>
+          </RevealText>
+
+          <RevealText>
+            <p className="mx-auto mt-6 max-w-3xl text-base md:text-lg text-gray-400 leading-relaxed">
+              Shark Edge is a branding agency that helps founders, coaches and
+              business owners turn their expertise into an impactful personal
+              brand. We transform that brand into a scalable, profitable and most
+              importantly enjoyable online business.
+            </p>
+          </RevealText>
+        </div>
+
+        {/* Phase tabs */}
+        <div className="mx-auto mt-10 max-w-5xl rounded-[2.5rem] border border-white/10 bg-[rgba(8,8,11,0.9)] p-[6px] shadow-[0_0_60px_rgba(0,0,0,0.9)]">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-2">
+
+            {PHASES.map((phase) => {
+              const isActive = phase.id === activeId
+              return (
+                <button
+                  key={phase.id}
+                  type="button"
+                  onClick={() => setActiveId(phase.id)}
+                  className={`relative flex flex-col items-center justify-center rounded-3xl px-6 py-5 text-sm sm:text-base font-semibold transition-all duration-300 ${isActive
+                    ? "bg-gradient-to-r from-[#facc15]/70 via-[#fde68a]/70 to-[#f97316]/60 text-black shadow-[0_0_20px_rgba(250,204,21,0.4)]"
+                    : "bg-transparent text-white/55 hover:text-white hover:bg-white/[0.03]"
+                    }`}
+                >
+                  <span className="uppercase tracking-[0.18em] text-[10px] sm:text-[11px]">
+                    {phase.tag}
+                  </span>
+                  {/* <span className="mt-1 text-xs sm:text-sm">{phase.label}</span> */}
+
+                  {isActive && (
+                    <span className="pointer-events-none absolute inset-x-4 -bottom-[2px] h-[2px] rounded-full bg-gradient-to-r from-transparent via-[#facc15] to-transparent" />
+                  )}
+                </button>
+              )
+            })}
+          </div>
+        </div>
+
+        {/* Active phase content card */}
+        <RevealText>
+          <div className="mt-10 rounded-3xl border border-white/10 bg-[rgba(8,8,11,0.96)] p-4 sm:p-6 lg:p-8 shadow-[0_0_55px_rgba(0,0,0,0.85)]">
+            <div className="grid gap-8 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,1.1fr)] items-center">
+              {/* Image side */}
+              <div className="relative h-[220px] sm:h-[260px] md:h-[320px] overflow-hidden rounded-3xl bg-black/60">
+                <Image
+                  src={activePhase.image.src}
+                  alt={activePhase.image.alt}
+                  fill
+                  sizes="(min-width: 1024px) 45vw, 100vw"
+                  className="object-cover transition-transform duration-500 will-change-transform group-hover:scale-[1.03]"
+                />
+                <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/40 via-black/10 to-transparent" />
+              </div>
+
+              {/* Text side */}
+              <div className="space-y-4">
+                <div className="text-xs sm:text-sm font-medium tracking-[0.22em] uppercase text-white/55">
+                  {activePhase.tag}
+                </div>
+
+                <h3 className="text-2xl sm:text-[1.7rem] font-semibold text-white">
+                  {activePhase.title}
+                </h3>
+
+                {activePhase.subtitle && (
+                  <p className="text-sm sm:text-base text-white/75">
+                    {activePhase.subtitle}
+                  </p>
+                )}
+
+                <div className="space-y-2.5 text-sm sm:text-[0.98rem] leading-relaxed text-white/80">
+                  {activePhase.body.map((line, idx) => (
+                    <p key={idx}>{line}</p>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        </RevealText>
+      </div>
+    </section>
+  )
+}
