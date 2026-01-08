@@ -4,6 +4,7 @@ import { Inter, Manrope } from "next/font/google"
 import localFont from "next/font/local"
 import "./globals.css"
 import { Header } from "@/components/header"
+import GradualBlur from "@/components/GradualBlur"
 
 /* Body / UI font */
 const inter = Inter({
@@ -63,6 +64,7 @@ export default function RootLayout({
         <main className="relative z-10">
           {children}
         </main>
+        <GradualBlur direction="bottom" blurLayers={1} maxBlur={1} height="20px" />
       </body>
     </html>
   )

@@ -77,7 +77,7 @@ export function TestimonialsSection() {
       if (!hoverRef.current) {
         setActive((prev) => (prev + 1) % testimonials.length);
       }
-    }, 5200);
+    }, 2500);
     return () => clearInterval(interval);
   }, []);
 

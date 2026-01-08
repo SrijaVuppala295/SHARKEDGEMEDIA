@@ -324,6 +324,7 @@ export function ResultsSection() {
                         <video
                           ref={(el) => { videoRefs.current[index] = el }}
                           playsInline
+                          preload="none"
                           poster={reel.thumbnail}
                           className="absolute inset-0 h-full w-full object-cover z-10"
                           onError={(e) => {

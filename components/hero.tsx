@@ -1,11 +1,19 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import Link from "next/link"
 import { Button } from "./ui/button"
 import StarBorder from "./StarBorder"
 
 export function Hero() {
+  const [videoReady, setVideoReady] = useState(false);
+
+  // Delay video loading to prioritize initial page render
+  useEffect(() => {
+    const timer = setTimeout(() => setVideoReady(true), 100);
+    return () => clearTimeout(timer);
+  }, []);
+
   const faceImages = [
     "https://images.pexels.com/photos/614810/pexels-photo-614810.jpeg?auto=compress&cs=tinysrgb&w=120",
     "https://images.pexels.com/photos/1181686/pexels-photo-1181686.jpeg?auto=compress&cs=tinysrgb&w=120",
@@ -94,20 +102,24 @@ export function Hero() {
     <section className="relative w-full min-h-screen overflow-hidden">
       {/* Background – scoped to hero only */}
       <div className="absolute inset-0 pointer-events-none">
-        <video
-          ref={(el) => {
-            if (el) {
-              el.playbackRate = 2.0;
-            }
-          }}
-          autoPlay
-          loop
-          muted
-          playsInline
-          className="absolute inset-0 h-full w-full object-cover"
-        >
-          <source src="/Background/hero-bg.mp4" type="video/mp4" />
-        </video>
+        {videoReady && (
+          <video
+            ref={(el) => {
+              if (el) {
+                el.playbackRate = 2.0;
+              }
+            }}
+            autoPlay
+            loop
+            muted
+            playsInline
+            preload="none"
+            className="absolute inset-0 h-full w-full object-cover"
+          >
+            <source src="/Background/hero-bg.webm" type="video/webm" />
+            <source src="/Background/hero-bg.mp4" type="video/mp4" />
+          </video>
+        )}
 
         {/* Dark overlay + subtle glow */}
         <div className="absolute inset-0 bg-black/30" />
@@ -157,6 +169,13 @@ export function Hero() {
               thickness={1.5}
               speed="3.5s"
               color="#f5c77a"
+              onClick={(e: React.MouseEvent<HTMLAnchorElement>) => {
+                e.preventDefault();
+                const target = document.getElementById('discovery');
+                if (target) {
+                  target.scrollIntoView({ behavior: 'smooth' });
+                }
+              }}
             >
               Book a Discovery Call
             </StarBorder>
