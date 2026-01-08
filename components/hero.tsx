@@ -107,6 +107,8 @@ export function Hero() {
             ref={(el) => {
               if (el) {
                 el.playbackRate = 2.0;
+                // Force play on mount
+                el.play().catch(() => { });
               }
             }}
             autoPlay
@@ -115,6 +117,18 @@ export function Hero() {
             playsInline
             preload="none"
             className="absolute inset-0 h-full w-full object-cover"
+            onCanPlay={(e) => {
+              // Ensure video plays when ready
+              const video = e.currentTarget;
+              video.play().catch(() => { });
+            }}
+            onPause={(e) => {
+              // Auto-resume if paused unexpectedly (power saving, tab switch, etc.)
+              const video = e.currentTarget;
+              if (!document.hidden) {
+                video.play().catch(() => { });
+              }
+            }}
           >
             <source src="/Background/hero-bg.webm" type="video/webm" />
             <source src="/Background/hero-bg.mp4" type="video/mp4" />
