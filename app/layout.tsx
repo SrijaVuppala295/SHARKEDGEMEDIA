@@ -1,6 +1,6 @@
 import type React from "react"
 import type { Metadata } from "next"
-import { Inter } from "next/font/google"
+import { Inter, Manrope } from "next/font/google"
 import localFont from "next/font/local"
 import "./globals.css"
 import { Header } from "@/components/header"
@@ -12,11 +12,22 @@ const inter = Inter({
   variable: "--font-inter",
 })
 
-/* Display / Premium heading font */
-const instrumentSerif = localFont({
-  src: "../public/fonts/InstrumentSerif-Regular.woff2",
-  variable: "--font-instrument",
-  style: 'normal',
+const manrope = Manrope({
+  subsets: ["latin"],
+  variable: "--font-manrope",
+})
+
+/* instrument serif italic */
+const instrumentSerifItalic = localFont({
+  src: "../public/fonts/InstrumentSerif-Italic.ttf",
+  variable: "--font-instrument-italic",
+  style: 'italic',
+})
+
+/* Inter local variable font */
+const interLocal = localFont({
+  src: "../public/fonts/Inter-VariableFont_opsz,wght.ttf",
+  variable: "--font-inter-local",
 })
 
 export const metadata: Metadata = {
@@ -38,7 +49,9 @@ export default function RootLayout({
       <body
         className={`
           ${inter.variable}
-          ${instrumentSerif.variable}
+          ${instrumentSerifItalic.variable}
+          ${interLocal.variable}
+          ${manrope.variable}
           antialiased
           bg-black
           text-white

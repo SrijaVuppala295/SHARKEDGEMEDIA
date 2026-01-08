@@ -9,7 +9,7 @@ export const Header = () => {
   return (
     <div className="fixed top-0 inset-x-0 z-50">
       <div className="mx-auto max-w-7xl px-6">
-        <header className="mt-5 flex items-center justify-between rounded-full border border-white/15 bg-[rgba(12,12,14,0.82)] backdrop-blur-xl px-8 py-3 shadow-[0_20px_60px_rgba(0,0,0,0.75)] hover:shadow-[0_0_50px_rgba(255,215,0,0.2)] transition-shadow duration-500">
+        <header className="mt-5 flex items-center justify-between rounded-full border border-white/10 bg-black/20 backdrop-blur-md backdrop-saturate-180 px-8 py-3 shadow-lg shadow-black/20 ring-1 ring-white/10 ring-inset hover:shadow-xl hover:shadow-black/30 transition-all duration-500">
 
           {/* LOGO — BIGGER + BOLDER */}
           <Link href="/" className="group flex items-center">
@@ -24,11 +24,11 @@ export const Header = () => {
 
       group-hover:text-white/90
     "
+              style={{ fontFamily: 'var(--font-manrope)' }}
             >
               Shark Edge
             </span>
           </Link>
-
 
           {/* CENTER NAV — BIGGER + BOLDER */}
           <nav className="hidden md:flex flex-1 items-center justify-center">

@@ -113,10 +113,6 @@ export function Hero() {
         <div className="absolute inset-0 bg-black/30" />
         <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/20 to-black/80" />
 
-
-
-
-
         <div className="absolute -top-40 left-1/2 h-80 w-[34rem] -translate-x-1/2 rounded-[48px] bg-white/10 blur-3xl opacity-40" />
       </div>
 
@@ -125,28 +121,25 @@ export function Hero() {
         <div className="max-w-4xl w-full text-center space-y-10 pt-32 md:pt-40 lg:pt-48">
           {/* Headline */}
           <h1 className="text-5xl sm:text-6xl lg:text-7xl xl:text-[4.2rem] font-medium leading-[1.1] mx-auto max-w-6xl text-center flex flex-col items-center gap-2">
-            <span className="block text-transparent bg-clip-text"
+            {/* Line 1: Level up your Personal Brand */}
+            {/* Using clamp for fluid typography: min 32px, preferred 6vw, max 96px */}
+            <span className="block text-[#E4E9F2] leading-[1.1] md:whitespace-nowrap"
               style={{
-                backgroundImage: "radial-gradient(99% 86% at 50% 50%, rgb(213,219,230) 28.387%, rgb(4,7,13) 100%)",
+                fontSize: "clamp(2.5rem, 6vw, 6rem)",
               }}
             >
-              Level up your
+              <span className="tracking-tight" style={{ fontFamily: 'var(--font-inter-local)', fontWeight: 500 }}>Level up your </span>
+              <span className="tracking-tight" style={{ fontFamily: 'var(--font-instrument-italic)', fontStyle: 'italic' }}>Personal Brand</span>
             </span>
 
-            <span className="block text-transparent bg-clip-text pb-1"
+            {/* Line 2: with Authority Positioning */}
+            <span className="block text-[#E4E9F2] leading-[1.1] md:whitespace-nowrap"
               style={{
-                backgroundImage: "radial-gradient(99% 86% at 50% 50%, rgb(213,219,230) 28.387%, rgb(4,7,13) 100%)",
+                fontSize: "clamp(2.5rem, 6vw, 6rem)",
               }}
             >
-              Personal Brand
-            </span>
-
-            <span className="block text-transparent bg-clip-text"
-              style={{
-                backgroundImage: "radial-gradient(99% 86% at 50% 50%, rgb(213,219,230) 28.387%, rgb(4,7,13) 100%)",
-              }}
-            >
-              with Authority Positioning
+              <span className="tracking-tight" style={{ fontFamily: 'var(--font-inter-local)', fontWeight: 500 }}>with </span>
+              <span className="tracking-tight" style={{ fontFamily: 'var(--font-instrument-italic)', fontStyle: 'italic' }}>Authority Positioning</span>
             </span>
           </h1>
 
@@ -157,7 +150,7 @@ export function Hero() {
           </p>
 
 
-          <div className="pt-2 flex justify-center">
+          <div className="mt-10 md:mt-12 flex justify-center">
             <StarBorder
               as="a"
               href="/#discovery"
@@ -169,11 +162,8 @@ export function Hero() {
             </StarBorder>
           </div>
 
-
-
-
           {/* Benefit ticks */}
-          <div className="mt-8 w-full flex justify-center">
+          <div className="mt-12 w-full flex justify-center">
             <div className="flex flex-row flex-wrap items-center justify-center gap-10">
               <div className="flex items-center gap-2 whitespace-nowrap">
                 <span className="flex h-4 w-4 items-center justify-center rounded-full bg-[#f5c77a] shadow-[0_0_6px_rgba(245,199,122,0.7)] flex-shrink-0">
