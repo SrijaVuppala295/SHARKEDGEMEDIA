@@ -197,7 +197,6 @@ export function Hero() {
                 />
               ))}
             </div>
-
             <p className="max-w-3xl text-center text-base sm:text-lg font-medium text-white/85 leading-relaxed">
               Helping more than 100+ coaches, entrepreneurs, and business owners build impactful
               personal brands with proven systems.
@@ -230,7 +229,6 @@ export function Hero() {
               ))}
             </div>
           </div>
-
         </div>
       </div>
     </section>

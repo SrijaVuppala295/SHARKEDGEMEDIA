@@ -58,7 +58,7 @@ export function FooterCTA() {
   }, [])
 
   return (
-    <footer className="text-white px-6 py-20 text-center space-y-12 overflow-hidden">
+    <footer id="discovery" className="text-white px-6 py-20 text-center space-y-12 overflow-hidden">
       {/* CTA AREA */}
       <div className="space-y-4">
         <h2 className="text-3xl md:text-4xl font-semibold bg-gradient-to-r from-white via-[#ffeebb] to-[#ffc700] bg-clip-text text-transparent pb-1">
