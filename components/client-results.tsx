@@ -4,28 +4,24 @@ import Image from "next/image";
 import { RevealText } from "./reveal-text";
 import StarBorder from "./StarBorder";
 import { ProofMessageCard } from "./ProofMessageCard";
+import { Masonry } from "./ui/masonry";
 
 
-
-const columns = [
-    [
-        { src: "/Results/1 (1).jpg", platform: "slack" },
-        { src: "/Results/1 (2).jpg", platform: "whatsapp" },
-        { src: "/Results/1 (3).jpg", platform: "whatsapp" },
-    ],
-    [
-        { src: "/Results/1 (4).jpg", platform: "whatsapp" },
-        { src: "/Results/1 (5).jpg", platform: "discord" },
-        { src: "/Results/1 (6).jpg", platform: "discord" },
-    ],
-    [
-        { src: "/Results/1 (7).jpg", platform: "whatsapp" },
-        { src: "/Results/1 (8).jpg", platform: "discord" },
-    ],
+const resultsData = [
+    { src: "/Results/1 (1).jpg" },
+    { src: "/Results/1 (2).jpg" },
+    { src: "/Results/1 (3).jpg" },
+    { src: "/Results/1 (4).jpg" },
+    { src: "/Results/1 (5).jpg" },
+    { src: "/Results/1 (6).jpg" },
+    { src: "/Results/1 (7).jpg" },
+    { src: "/Results/1 (8).jpg" },
+    { src: "/Results/1 (9).png" },
 ];
 
 
 export function ClientResults() {
+
     return (
         <section id="clients" className="relative py-28 px-4 overflow-hidden">
             <div className="mx-auto max-w-6xl flex flex-col items-center gap-14">
@@ -47,7 +43,7 @@ export function ClientResults() {
                                 '--star-hover-text': 'black',
                             } as React.CSSProperties}
                         >
-                            PROOF OF RESULTS
+                            PROOF OF WORK
                         </StarBorder>
                     </RevealText>
 
@@ -74,21 +70,18 @@ export function ClientResults() {
 
                 {/* Masonry screenshots */}
                 <div className="relative w-full">
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                        {columns.map((images, colIndex) => (
-                            <div key={colIndex} className="flex flex-col gap-8">
-                                {images.map((item, imgIndex) => (
-                                    <RevealText key={imgIndex}>
-                                        <ProofMessageCard
-                                            src={item.src}
-                                            platform={item.platform}
-                                        />
-                                    </RevealText>
-                                ))}
-
-                            </div>
-                        ))}
-                    </div>
+                    <Masonry
+                        data={resultsData}
+                        duration={0.8}
+                        stagger={0.05} // Increased slightly from 0.01 for better visibility of effect, can tweak
+                        gap={32}
+                        renderItem={(item, index) => (
+                            <ProofMessageCard
+                                key={index}
+                                src={item.src}
+                            />
+                        )}
+                    />
 
                     <div className="pointer-events-none absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-black to-transparent" />
                 </div>

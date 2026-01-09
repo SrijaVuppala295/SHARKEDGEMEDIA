@@ -3,7 +3,9 @@
 
 import { useState, useRef, useEffect } from "react"
 import Image from "next/image"
+import Link from "next/link"
 import gsap from "gsap"
+import { motion } from "framer-motion"
 import { RevealText } from "./reveal-text"
 import StarBorder from "./StarBorder"
 
@@ -92,12 +94,15 @@ export function ProcessSection() {
   const [activeId, setActiveId] = useState<number>(1)
   const activePhase = PHASES.find((p) => p.id === activeId) ?? PHASES[0]
 
+  const [isPaused, setIsPaused] = useState(false)
+
   useEffect(() => {
+    if (isPaused) return
     const interval = setInterval(() => {
       setActiveId((current) => (current === PHASES.length ? 1 : current + 1))
     }, 5000)
     return () => clearInterval(interval)
-  }, [])
+  }, [isPaused])
 
   return (
     <section
@@ -149,7 +154,11 @@ export function ProcessSection() {
         </div>
 
         {/* Phase tabs */}
-        <div className="mx-auto mt-10 max-w-5xl rounded-[2.5rem] border border-white/10 bg-[rgba(8,8,11,0.9)] p-[6px] shadow-[0_0_60px_rgba(0,0,0,0.9)]">
+        <div
+          className="mx-auto mt-10 max-w-5xl rounded-[2.5rem] border border-white/10 bg-[rgba(8,8,11,0.9)] p-[6px] shadow-[0_0_60px_rgba(0,0,0,0.9)]"
+          onMouseEnter={() => setIsPaused(true)}
+          onMouseLeave={() => setIsPaused(false)}
+        >
           <div className="grid grid-cols-2 md:grid-cols-4 gap-2">
 
             {PHASES.map((phase) => {
@@ -158,19 +167,38 @@ export function ProcessSection() {
                 <button
                   key={phase.id}
                   type="button"
-                  onClick={() => setActiveId(phase.id)}
-                  className={`relative flex flex-col items-center justify-center rounded-3xl px-6 py-5 text-sm sm:text-base font-semibold transition-all duration-300 ${isActive
-                    ? "bg-gradient-to-r from-[#facc15]/70 via-[#fde68a]/70 to-[#f97316]/60 text-black shadow-[0_0_20px_rgba(250,204,21,0.4)]"
-                    : "bg-transparent text-white/55 hover:text-white hover:bg-white/[0.03]"
+                  onMouseEnter={() => setActiveId(phase.id)}
+                  className={`relative flex flex-col items-center justify-center rounded-3xl px-6 py-5 text-sm sm:text-base font-semibold transition-colors duration-300 cursor-pointer ${isActive
+                    ? "text-black"
+                    : "text-white/55 hover:text-white"
                     }`}
                 >
-                  <span className="uppercase tracking-[0.18em] text-[10px] sm:text-[11px]">
+                  {isActive && (
+                    <motion.div
+                      layoutId="active-phase-bg"
+                      className="absolute inset-0 rounded-3xl bg-gradient-to-r from-[#facc15]/70 via-[#fde68a]/70 to-[#f97316]/60 shadow-[0_0_20px_rgba(250,204,21,0.4)]"
+                      transition={{
+                        type: "spring",
+                        stiffness: 300,
+                        damping: 30,
+                      }}
+                    />
+                  )}
+
+                  <span className="relative z-10 uppercase tracking-[0.18em] text-[10px] sm:text-[11px]">
                     {phase.tag}
                   </span>
-                  {/* <span className="mt-1 text-xs sm:text-sm">{phase.label}</span> */}
 
                   {isActive && (
-                    <span className="pointer-events-none absolute inset-x-4 -bottom-[2px] h-[2px] rounded-full bg-gradient-to-r from-transparent via-[#facc15] to-transparent" />
+                    <motion.span
+                      layoutId="active-phase-indicator"
+                      className="pointer-events-none absolute inset-x-4 -bottom-[2px] z-10 h-[2px] rounded-full bg-gradient-to-r from-transparent via-[#facc15] to-transparent"
+                      transition={{
+                        type: "spring",
+                        stiffness: 300,
+                        damping: 30,
+                      }}
+                    />
                   )}
                 </button>
               )
@@ -180,7 +208,11 @@ export function ProcessSection() {
 
         {/* Active phase content card */}
         <RevealText>
-          <div className="mt-10 rounded-3xl border border-white/10 bg-[rgba(8,8,11,0.96)] p-4 sm:p-6 lg:p-8 shadow-[0_0_55px_rgba(0,0,0,0.85)]">
+          <div
+            className="mt-10 rounded-3xl border border-white/10 bg-[rgba(8,8,11,0.96)] p-4 sm:p-6 lg:p-8 shadow-[0_0_55px_rgba(0,0,0,0.85)]"
+            onMouseEnter={() => setIsPaused(true)}
+            onMouseLeave={() => setIsPaused(false)}
+          >
             <div className="grid gap-8 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,1.1fr)] items-center">
               {/* Image side */}
               <div className="relative h-[220px] sm:h-[260px] md:h-[320px] overflow-hidden rounded-3xl bg-black/60">

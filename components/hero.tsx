@@ -4,6 +4,7 @@ import { useState, useEffect } from "react"
 import Link from "next/link"
 import { Button } from "./ui/button"
 import StarBorder from "./StarBorder"
+import { InfiniteScroll } from "./ui/infinite-scroll"
 
 export function Hero() {
   const [videoReady, setVideoReady] = useState(false);
@@ -237,30 +238,30 @@ export function Hero() {
           </div>
 
           {/* Scrolling client logos */}
-          <div className="mt-10 w-[100vw] max-w-[100vw] relative left-1/2 -translate-x-1/2 overflow-hidden py-6">
+          <div className="mt-10 w-screen relative left-1/2 -translate-x-1/2 overflow-hidden py-10">
             {/* Left fade */}
             <div className="pointer-events-none absolute left-0 top-0 z-10 h-full w-24 bg-gradient-to-r from-black to-transparent" />
 
             {/* Right fade */}
             <div className="pointer-events-none absolute right-0 top-0 z-10 h-full w-24 bg-gradient-to-l from-black to-transparent" />
 
-            <div className="company-marquee flex items-center gap-16 px-10">
-              {companyLogos.concat(companyLogos).map((logo, index) => (
+            <InfiniteScroll speed={50} hoverSpeed={10} gap={120}>
+              {companyLogos.map((logo, index) => (
                 <img
                   key={`${logo.alt}-${index}`}
                   src={logo.src}
                   alt={logo.alt}
                   className="company-logo-img object-contain transition-all duration-300
-                             brightness-0 invert opacity-60
-                             hover:opacity-100 hover:drop-shadow-[0_0_8px_rgba(255,255,255,0.6)]"
+                              brightness-0 invert opacity-60
+                              hover:opacity-100 hover:drop-shadow-[0_0_8px_rgba(255,255,255,0.6)]"
                   style={{
-                    height: logo.height ? `${logo.height}px` : "36px",
-                    width: logo.width === "auto" ? "auto" : `${logo.width}px`,
+                    height: "45px", // Enforced 45px as requested
+                    width: "auto",
                   }}
                   loading="lazy"
                 />
               ))}
-            </div>
+            </InfiniteScroll>
           </div>
         </div>
       </div>

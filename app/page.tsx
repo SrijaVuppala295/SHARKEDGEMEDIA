@@ -23,10 +23,8 @@ export default function Home() {
       <ProcessSection />
       <ResultsSection />
       <BeforeAfterResults />
-      {/* <CallBookingSection /> */}
       <FaqSection />
       <FooterCTA />
-      {/* footer */}
     </>
   )
 }
