@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useState, useEffect, useMemo, useRef } from 'react';
-import { useTransition, a } from '@react-spring/web';
 
 interface MasonryProps<T> {
     data: T[];
@@ -38,7 +37,7 @@ export function Masonry<T>({
     }, [columns]);
 
     // Height tracking per column
-    const [items, setGridItems] = useState<{ item: T; x: number; y: number; width: number; height: number; index: number }[]>([]);
+    // Height tracking per column - REMOVED UNUSED STATE
 
     // We need to measure items to position them absolutely.
     // However, measuring React components before render is hard.
@@ -70,7 +69,7 @@ export function Masonry<T>({
         >
             {columnBuckets.map((bucket, colIndex) => (
                 <div key={colIndex} className="flex flex-col flex-1" style={{ gap: `${gap}px` }}>
-                    {bucket.map((item, itemIndex) => {
+                    {bucket.map((item) => {
                         // Global index for stagger calculation based on original data order if possible, 
                         // or just approximate it.
                         // Let's find the original index in `data`

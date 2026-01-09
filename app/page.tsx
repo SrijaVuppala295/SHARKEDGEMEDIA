@@ -1,16 +1,16 @@
 import dynamic from "next/dynamic"
-import { Hero } from "@/components/hero"
+import { Hero } from "@/components/sections/hero"
 
 // Dynamic imports for below-fold components - code splitting
-const ClientResults = dynamic(() => import("@/components/client-results").then(mod => ({ default: mod.ClientResults })))
-const TestimonialsSection = dynamic(() => import("@/components/testimonials").then(mod => ({ default: mod.TestimonialsSection })))
-const ProblemSection = dynamic(() => import("@/components/problem-section").then(mod => ({ default: mod.ProblemSection })))
-const SolutionSection = dynamic(() => import("@/components/solution-section").then(mod => ({ default: mod.SolutionSection })))
-const ProcessSection = dynamic(() => import("@/components/process-section").then(mod => ({ default: mod.ProcessSection })))
-const ResultsSection = dynamic(() => import("@/components/results-section").then(mod => ({ default: mod.ResultsSection })))
-const BeforeAfterResults = dynamic(() => import("@/components/BeforeAfterResults").then(mod => ({ default: mod.BeforeAfterResults })))
-const FaqSection = dynamic(() => import("@/components/FaqSection").then(mod => ({ default: mod.FaqSection })))
-const FooterCTA = dynamic(() => import("@/components/FooterCTA").then(mod => ({ default: mod.FooterCTA })))
+const ClientResults = dynamic(() => import("@/components/sections/client-results").then(mod => ({ default: mod.ClientResults })))
+const TestimonialsSection = dynamic(() => import("@/components/sections/testimonials").then(mod => ({ default: mod.TestimonialsSection })))
+const ProblemSection = dynamic(() => import("@/components/sections/problem-section").then(mod => ({ default: mod.ProblemSection })))
+const SolutionSection = dynamic(() => import("@/components/sections/solution-section").then(mod => ({ default: mod.SolutionSection })))
+const ProcessSection = dynamic(() => import("@/components/sections/process-section").then(mod => ({ default: mod.ProcessSection })))
+const ResultsSection = dynamic(() => import("@/components/sections/results-section").then(mod => ({ default: mod.ResultsSection })))
+const BeforeAfterResults = dynamic(() => import("@/components/sections/before-after-results").then(mod => ({ default: mod.BeforeAfterResults })))
+const FaqSection = dynamic(() => import("@/components/sections/faq-section").then(mod => ({ default: mod.FaqSection })))
+const FooterCTA = dynamic(() => import("@/components/sections/footer-cta").then(mod => ({ default: mod.FooterCTA })))
 
 export default function Home() {
   return (
