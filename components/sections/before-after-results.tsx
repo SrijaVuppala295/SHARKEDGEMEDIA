@@ -4,6 +4,7 @@ import React, { useEffect, useRef } from "react"
 import gsap from "gsap"
 import { RevealText } from "@/components/common/reveal-text"
 import { SectionBadge } from "@/components/ui/section-badge"
+import { PremiumText } from "@/components/ui/premium-text"
 import Image from "next/image"
 
 type CaseStudy = {
@@ -103,10 +104,7 @@ const CASE_STUDIES: CaseStudy[] =
 export function BeforeAfterResults() {
   return (
     <section className="relative isolate py-20 sm:py-24 overflow-hidden">
-      {/* subtle background glow */}
-      <div className="pointer-events-none absolute inset-0 opacity-60">
-        <div className="absolute left-1/2 top-0 h-80 w-[46rem] -translate-x-1/2 rounded-full bg-[radial-gradient(circle_at_center,rgba(255,199,0,0.18),transparent_65%)] blur-3xl" />
-      </div>
+      {/* subtle background glow - removed */}
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
 
 
@@ -118,20 +116,21 @@ export function BeforeAfterResults() {
             </SectionBadge>
           </RevealText>
 
-          <RevealText>
-            <h2 className="text-4xl sm:text-5xl md:text-6xl font-semibold leading-tight text-white">
-              <span className="bg-gradient-to-r from-white via-white to-[#ffc700] bg-clip-text text-transparent">
-                Before &amp; After Results.
-              </span>
-            </h2>
-          </RevealText>
+          <h2 className="text-4xl sm:text-5xl md:text-6xl font-semibold leading-tight text-white">
+            <PremiumText
+              text="Before & After Results."
+              as="span"
+              className="bg-gradient-to-r from-white via-white to-[#f5c77a] bg-clip-text text-transparent"
+            />
+          </h2>
 
-          <RevealText>
-            <p className="mt-4 max-w-3xl mx-auto text-sm sm:text-base md:text-lg text-white/65">
-              Real accounts, real numbers — showing what happens when your content
-              finally works in your favor every single week.
-            </p>
-          </RevealText>
+          <div className="mt-4 max-w-3xl mx-auto text-sm sm:text-base md:text-lg text-white/65">
+            <PremiumText
+              text="Real accounts, real numbers — showing what happens when your content finally works in your favor every single week."
+              as="p"
+              delay={0.2}
+            />
+          </div>
         </div>
 
         {/* CASE STUDIES */}

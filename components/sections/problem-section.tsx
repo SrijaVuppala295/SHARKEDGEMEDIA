@@ -3,6 +3,7 @@
 import { EyeOff, Tag, RefreshCcw, MegaphoneOff } from "lucide-react"
 import { RevealText } from "@/components/common/reveal-text"
 import { SectionBadge } from "@/components/ui/section-badge"
+import { PremiumText } from "@/components/ui/premium-text"
 
 const problems = [
   {
@@ -58,21 +59,22 @@ export function ProblemSection() {
           </RevealText>
 
           {/* Main Heading */}
-          <RevealText>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold text-white">
-              {" "}
-              <span className="bg-gradient-to-r from-white via-white to-[#ffc700] bg-clip-text text-transparent">
-                The Invisible Expert
-              </span>
-            </h2>
-          </RevealText>
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold text-white">
+            <PremiumText
+              text="The Invisible Expert"
+              as="span"
+              className="bg-gradient-to-r from-white via-white to-[#f5c77a] bg-clip-text text-transparent"
+            />
+          </h2>
 
           {/* Subheading */}
-          <RevealText>
-            <p className="mx-auto mt-6 max-w-3xl text-base md:text-lg text-gray-400 leading-relaxed">
-              You Are An Expert, But Does Anyone Know It?
-            </p>
-          </RevealText>
+          <div className="mx-auto mt-6 max-w-3xl text-base md:text-lg text-gray-400 leading-relaxed">
+            <PremiumText
+              text="You Are An Expert, But Does Anyone Know It?"
+              as="p"
+              delay={0.2}
+            />
+          </div>
 
         </div>
 

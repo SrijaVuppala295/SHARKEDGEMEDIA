@@ -4,6 +4,7 @@ import { useState } from "react"
 import { RevealText } from "@/components/common/reveal-text"
 import StarBorder from "@/components/common/star-border"
 import { SectionBadge } from "@/components/ui/section-badge"
+import { PremiumText } from "@/components/ui/premium-text"
 import { AnimatePresence, motion } from "framer-motion"
 
 const faqs = [
@@ -54,22 +55,22 @@ export function FaqSection() {
         </RevealText>
 
         {/* Main Heading */}
-        <RevealText>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold text-white">
-            Frequently{" "}
-            <span className="bg-gradient-to-r from-white via-white to-[#ffc700] bg-clip-text text-transparent">
-              Asked Questions
-            </span>
-          </h2>
-        </RevealText>
+        <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold text-white">
+          <PremiumText
+            text="Frequently Asked Questions"
+            as="span"
+            className="bg-gradient-to-r from-white via-white to-[#f5c77a] bg-clip-text text-transparent"
+          />
+        </h2>
 
         {/* Subheading */}
-        <RevealText>
-          <p className="mx-auto mt-6 max-w-3xl text-base md:text-lg text-gray-400 leading-relaxed">
-            Answers to common questions about our services, processes, and what
-            sets us apart.
-          </p>
-        </RevealText>
+        <div className="mx-auto mt-6 max-w-3xl text-base md:text-lg text-gray-400 leading-relaxed">
+          <PremiumText
+            text="Answers to common questions about our services, processes, and what sets us apart."
+            as="p"
+            delay={0.2}
+          />
+        </div>
       </div>
 
       <RevealText>

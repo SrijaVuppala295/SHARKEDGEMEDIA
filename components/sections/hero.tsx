@@ -3,6 +3,7 @@
 
 import StarBorder from "@/components/common/star-border"
 import { InfiniteScroll } from "@/components/ui/infinite-scroll"
+import { PremiumText } from "@/components/ui/premium-text"
 import NextImage from "next/image"
 
 
@@ -138,14 +139,28 @@ export function Hero() {
           {/* Headline */}
           <h1 className="text-5xl sm:text-6xl lg:text-7xl xl:text-[4.2rem] font-medium leading-[1.1] mx-auto max-w-6xl text-center flex flex-col items-center gap-2">
             {/* Line 1: Level up your Personal Brand */}
-            {/* Using clamp for fluid typography: min 32px, preferred 6vw, max 96px */}
             <span className="block text-[#E4E9F2] leading-[1.1] md:whitespace-nowrap"
               style={{
                 fontSize: "clamp(2.5rem, 6vw, 6rem)",
               }}
             >
-              <span className="tracking-tight" style={{ fontFamily: 'var(--font-inter-local)', fontWeight: 500 }}>Level up your </span>
-              <span className="tracking-tight" style={{ fontFamily: 'var(--font-instrument-italic)', fontStyle: 'italic' }}>Personal Brand</span>
+              <PremiumText
+                text="Level up your"
+                as="span"
+                style={{ fontFamily: 'var(--font-inter-local)', fontWeight: 500 }}
+                className="tracking-tight inline-block mr-3"
+                triggerOnce={true}
+                priority={true}
+              />
+              <PremiumText
+                text="Personal Brand"
+                as="span"
+                delay={0.2}
+                style={{ fontFamily: 'var(--font-instrument-italic)', fontStyle: 'italic' }}
+                className="tracking-tight inline-block"
+                triggerOnce={true}
+                priority={true}
+              />
             </span>
 
             {/* Line 2: with Authority Positioning */}
@@ -154,16 +169,37 @@ export function Hero() {
                 fontSize: "clamp(2.5rem, 6vw, 6rem)",
               }}
             >
-              <span className="tracking-tight" style={{ fontFamily: 'var(--font-inter-local)', fontWeight: 500 }}>with </span>
-              <span className="tracking-tight" style={{ fontFamily: 'var(--font-instrument-italic)', fontStyle: 'italic' }}>Authority Positioning</span>
+              <PremiumText
+                text="with"
+                as="span"
+                delay={0.4}
+                style={{ fontFamily: 'var(--font-inter-local)', fontWeight: 500 }}
+                className="tracking-tight inline-block mr-3"
+                triggerOnce={true}
+                priority={true}
+              />
+              <PremiumText
+                text="Authority Positioning"
+                as="span"
+                delay={0.5}
+                style={{ fontFamily: 'var(--font-instrument-italic)', fontStyle: 'italic' }}
+                className="tracking-tight inline-block"
+                triggerOnce={true}
+                priority={true}
+              />
             </span>
           </h1>
 
           {/* Subheading */}
-          <p className="text-lg sm:text-xl md:text-2xl font-medium text-white/60 leading-relaxed max-w-4xl mx-auto text-balance">
-            If you&apos;re a busy founder, coach or business owner who wants to grow a personal brand but
-            has zero time to post, then this is for you.
-          </p>
+          <div className="text-lg sm:text-xl md:text-2xl font-medium text-white/60 leading-relaxed max-w-4xl mx-auto text-balance">
+            <PremiumText
+              text="If you're a busy founder, coach or business owner who wants to grow a personal brand but has zero time to post, then this is for you."
+              as="p"
+              delay={0.6}
+              triggerOnce={true}
+              priority={true}
+            />
+          </div>
 
 
           <div className="mt-10 md:mt-12 flex justify-center">
@@ -221,10 +257,15 @@ export function Hero() {
                 />
               ))}
             </div>
-            <p className="max-w-3xl text-center text-base sm:text-lg font-medium text-white/85 leading-relaxed">
-              Helping more than 100+ coaches, entrepreneurs, and business owners build impactful
-              personal brands with proven systems.
-            </p>
+            <div className="max-w-3xl text-center text-base sm:text-lg font-medium text-white/85 leading-relaxed">
+              <PremiumText
+                text="Helping more than 100+ coaches, entrepreneurs, and business owners build impactful personal brands with proven systems."
+                as="p"
+                delay={0.8}
+                triggerOnce={true}
+                priority={true}
+              />
+            </div>
           </div>
 
           {/* Scrolling client logos */}

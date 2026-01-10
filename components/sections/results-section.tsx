@@ -4,6 +4,7 @@
 import { useState, useRef, useEffect } from "react"
 import { RevealText } from "@/components/common/reveal-text"
 import { SectionBadge } from "@/components/ui/section-badge"
+import { PremiumText } from "@/components/ui/premium-text"
 import Image from "next/image"
 
 function useCountUp(target: number, duration = 1600, interval = 10000) {
@@ -274,22 +275,22 @@ export function ResultsSection() {
           </RevealText>
 
           {/* Main Heading */}
-          <RevealText>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold text-white">
-              See what happens when your{" "}
-              <span className="bg-gradient-to-r from-white via-white to-[#ffc700] bg-clip-text text-transparent">
-                content compounds.
-              </span>
-            </h2>
-          </RevealText>
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold text-white">
+            <PremiumText
+              text="See what happens when your content compounds."
+              as="span"
+              className="bg-gradient-to-r from-white via-white to-[#f5c77a] bg-clip-text text-transparent"
+            />
+          </h2>
 
           {/* Subheading */}
-          <RevealText>
-            <p className="mx-auto mt-6 max-w-3xl text-base md:text-lg text-gray-400 leading-relaxed">
-              These are the kinds of reels we build and refine for you week after
-              week — designed to build authority, trust and demand on autopilot.
-            </p>
-          </RevealText>
+          <div className="mx-auto mt-6 max-w-3xl text-base md:text-lg text-gray-400 leading-relaxed">
+            <PremiumText
+              text="These are the kinds of reels we build and refine for you week after week — designed to build authority, trust and demand on autopilot."
+              as="p"
+              delay={0.2}
+            />
+          </div>
         </div>
 
         <div className="relative mt-14 w-full overflow-hidden">

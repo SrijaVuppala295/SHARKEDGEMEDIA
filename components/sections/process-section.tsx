@@ -6,6 +6,7 @@ import Image from "next/image"
 import { motion } from "framer-motion"
 import { RevealText } from "@/components/common/reveal-text"
 import { SectionBadge } from "@/components/ui/section-badge"
+import { PremiumText } from "@/components/ui/premium-text"
 
 type Phase = {
   id: number
@@ -107,10 +108,7 @@ export function ProcessSection() {
       id="process"
       className="relative w-full border-t border-white/5 px-4 py-16 lg:py-28 sm:px-6 overflow-hidden"
     >
-      {/* subtle background glow */}
-      <div className="pointer-events-none absolute inset-0 opacity-60">
-        <div className="absolute left-1/2 top-0 h-80 w-[46rem] -translate-x-1/2 rounded-full bg-[radial-gradient(circle_at_center,rgba(255,199,0,0.18),transparent_65%)] blur-3xl" />
-      </div>
+      {/* subtle background glow - removed */}
 
       <div className="relative mx-auto max-w-6xl space-y-10">
         {/* Main heading + intro copy */}
@@ -121,23 +119,21 @@ export function ProcessSection() {
             </SectionBadge>
           </RevealText>
 
-          <RevealText>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold text-white">
-              Here&apos;s exactly{" "}
-              <span className="bg-gradient-to-r from-white via-white to-[#ffc700] bg-clip-text text-transparent">
-                how we do it.
-              </span>
-            </h2>
-          </RevealText>
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold text-white">
+            <PremiumText
+              text="Here's exactly how we do it."
+              as="span"
+              className="bg-gradient-to-r from-white via-white to-[#f5c77a] bg-clip-text text-transparent"
+            />
+          </h2>
 
-          <RevealText>
-            <p className="mx-auto mt-6 max-w-3xl text-base md:text-lg text-gray-400 leading-relaxed">
-              Shark Edge is a branding agency that helps founders, coaches and
-              business owners turn their expertise into an impactful personal
-              brand. We transform that brand into a scalable, profitable and most
-              importantly enjoyable online business.
-            </p>
-          </RevealText>
+          <div className="mx-auto mt-6 max-w-3xl text-base md:text-lg text-gray-400 leading-relaxed">
+            <PremiumText
+              text="Shark Edge is a branding agency that helps founders, coaches and business owners turn their expertise into an impactful personal brand. We transform that brand into a scalable, profitable and most importantly enjoyable online business."
+              as="p"
+              delay={0.2}
+            />
+          </div>
         </div>
 
         {/* Phase tabs */}

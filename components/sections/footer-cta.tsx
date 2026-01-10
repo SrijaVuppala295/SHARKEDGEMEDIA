@@ -1,9 +1,9 @@
 "use client"
 
 import Link from "next/link"
-import { useEffect, useRef } from "react"
-import gsap from "gsap"
-import { FaInstagram, FaLinkedin, FaFacebook } from "react-icons/fa"
+import { FaInstagram, FaLinkedin } from "react-icons/fa"
+import { PremiumText } from "@/components/ui/premium-text"
+import { motion } from "framer-motion"
 
 const socialLinks = [
   {
@@ -19,191 +19,94 @@ const socialLinks = [
 ]
 
 export function FooterCTA() {
-  const layersRef = useRef<HTMLDivElement>(null)
-
-  useEffect(() => {
-    if (!layersRef.current) return
-
-    const container = layersRef.current
-    const layers = container.querySelectorAll(".gold-glass")
-    const button = container.querySelector(".cta-button")
-
-    const tl = gsap.timeline({ paused: true })
-
-    tl.to(container, {
-      scale: 1.05, // Slightly larger on hover
-      duration: 0.45,
-      ease: "power3.out",
-    })
-
-    tl.to(
-      layers,
-      {
-        scale: 1.02,
-        duration: 0.45,
-        stagger: 0.05,
-        ease: "power2.out",
-      },
-      0
-    )
-
-    tl.to(
-      button,
-      {
-        y: -3,
-        scale: 1.05,
-        duration: 0.35,
-        ease: "power3.out",
-      },
-      0
-    )
-
-    const onEnter = () => tl.play()
-    const onLeave = () => tl.reverse()
-
-    container.addEventListener("mouseenter", onEnter)
-    container.addEventListener("mouseleave", onLeave)
-
-    return () => {
-      container.removeEventListener("mouseenter", onEnter)
-      container.removeEventListener("mouseleave", onLeave)
-    }
-  }, [])
-
   return (
-    <footer id="discovery" className="text-white px-6 py-12 md:py-20 text-center space-y-12 overflow-hidden">
-      {/* CTA AREA */}
-      <div className="space-y-4">
-        <h2 className="text-3xl md:text-4xl font-semibold bg-gradient-to-r from-white via-[#ffeebb] to-[#ffc700] bg-clip-text text-transparent pb-1">
-          Turn your brand to the next level.
-        </h2>
+    <footer id="discovery" className="relative w-full overflow-hidden bg-black pt-16 pb-8 md:pt-20 md:pb-12">
+      {/* Background Glow - Subtle, breathing gold gradient */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[300px] bg-[#f5c77a]/10 blur-[100px] rounded-full pointer-events-none animate-pulse-slow" />
 
-        <p className="text-base md:text-lg glow-text/soft">
+      {/* Top Fade ensuring no hard cut-off if glow reaches top */}
+      <div className="absolute top-0 left-0 w-full h-24 bg-gradient-to-b from-black to-transparent z-0 pointer-events-none" />
+
+      <div className="container mx-auto px-6 relative z-10 flex flex-col items-center text-center">
+
+        {/* Headline */}
+        <div className="max-w-4xl mx-auto mb-8">
+          <h2 className="text-4xl md:text-6xl lg:text-7xl font-medium tracking-tight text-white mb-2">
+            <span className="block">
+              <PremiumText
+                text="Turn your brand"
+                as="span"
+                triggerOnce={true}
+                className="text-white"
+              />
+            </span>
+            <span className="block">
+              <PremiumText
+                text="to the next level."
+                as="span"
+                delay={0.2}
+                triggerOnce={true}
+                className="text-[#f5c77a] italic"
+                style={{ fontFamily: 'var(--font-instrument-italic)' }}
+              />
+            </span>
+          </h2>
+        </div>
+
+        {/* Subtext */}
+        <p className="text-lg md:text-xl text-white/60 mb-10 font-light tracking-wide max-w-xl mx-auto">
           Need more Clarity? Get in Touch.
         </p>
 
-        {/* CTA CONTAINER */}
-        <div className="w-full flex justify-center items-center mt-12 sm:mt-16">
-          <div className="relative w-full flex justify-center">
+        {/* Premium Button */}
+        <Link
+          href="https://calendly.com/mkthoughts10/discovery-call"
+          target="_blank"
+          className="group relative inline-flex items-center justify-center gap-3 px-8 py-3 bg-[#f5c77a] text-black rounded-full font-medium text-lg transition-all duration-300 hover:scale-105 hover:shadow-[0_0_40px_rgba(245,199,122,0.3)]"
+        >
+          <span>Book a Discovery Call</span>
+          <span className="group-hover:translate-x-1 transition-transform duration-300">→</span>
 
-            {/* Scaler Wrapper - Adjusted to 0.52 (Sweet spot between 0.45 and 0.6) */}
-            <div className="relative origin-center transform scale-[0.52] sm:scale-100 transition-transform duration-300">
-              {/* STRICT 560x260 CONTAINER */}
-              <div
-                ref={layersRef}
-                className="cta-container relative w-[560px] h-[260px] flex items-center justify-center"
+          {/* Button Shine overlay */}
+          <div className="absolute inset-0 rounded-full overflow-hidden pointer-events-none">
+            <div className="absolute top-0 left-0 w-[50%] h-full bg-gradient-to-r from-transparent via-white/40 to-transparent -translate-x-[150%] group-hover:animate-shine" />
+          </div>
+        </Link>
+
+        {/* Separator / Footer Links */}
+        <div className="mt-24 md:mt-32 w-full border-t border-white/10 pt-10 flex flex-col md:flex-row justify-between items-center gap-6 text-sm text-white/40">
+          <div>© Shark Edge Media. All rights reserved.</div>
+
+          <div className="flex gap-6 text-xl text-white/80">
+            {socialLinks.map((social, index) => (
+              <Link
+                key={index}
+                href={social.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`${social.className} transition-colors duration-300`}
               >
-
-                {/* Layer 1: Base */}
-                <div className="absolute inset-0 rounded-full gold-glass layer-1" />
-
-                {/* Layer 2: Inset 10 (40px) */}
-                <div className="absolute inset-10 rounded-full gold-glass layer-2" />
-
-                {/* Layer 3: Inset 20 (80px) */}
-                <div className="absolute inset-20 rounded-full gold-glass layer-3" />
-
-                {/* BUTTON */}
-                <Link
-                  href="https://calendly.com/mkthoughts10/discovery-call"
-                  target="_blank"
-                  className="relative z-10"
-                >
-                  <button className="cta-button px-12 py-5 rounded-full font-medium text-black transition-transform duration-300 flex items-center gap-3 focus:outline-none whitespace-nowrap text-lg">
-                    Book a Discovery Call <span className="text-xl">→</span>
-                  </button>
-                </Link>
-
-              </div>
-            </div>
+                <social.icon />
+              </Link>
+            ))}
           </div>
         </div>
       </div>
 
-      {/* FOOTER */}
-      <div className="border-t border-white/10 pt-10 space-y-6">
-        <div className="text-lg font-medium">Shark Edge Media</div>
-
-        <div className="flex justify-center gap-6 text-xl">
-          {socialLinks.map((social, index) => (
-            <Link
-              key={index}
-              href={social.href}
-              target="_blank"
-              rel="noopener noreferrer"
-              className={`${social.className} transition`}
-            >
-              <social.icon />
-            </Link>
-          ))}
-        </div>
-
-        <div className="text-sm text-white/60">
-          © Shark Edge Media. All rights reserved.
-        </div>
-      </div>
-
       <style jsx>{`
-        /* =========================
-           GLASS BASE
-        ========================= */
-        .gold-glass {
-          backdrop-filter: blur(22px);
-          -webkit-backdrop-filter: blur(22px);
-          border: 1px solid rgba(255, 255, 255, 0.18);
+        @keyframes pulse-slow {
+            0%, 100% { opacity: 0.5; transform: translate(-50%, -50%) scale(1); }
+            50% { opacity: 0.8; transform: translate(-50%, -50%) scale(1.1); }
         }
-
-        /* =========================
-           LAYERS – LIGHT CRYSTAL GOLD
-        ========================= */
-        .layer-1 {
-          background: linear-gradient(
-            180deg,
-            rgba(255, 248, 220, 0.85),
-            rgba(242, 211, 94, 0.65),
-            rgba(230, 195, 74, 0.45)
-          );
-          border: 1px solid rgba(255, 255, 255, 0.28);
-          box-shadow:
-            inset 0 1px 0 rgba(255, 255, 255, 0.75),
-            0 0 85px rgba(242, 211, 94, 0.65);
+        .animate-pulse-slow {
+            animation: pulse-slow 8s ease-in-out infinite;
         }
-
-        .layer-2 {
-          background: linear-gradient(
-            180deg,
-            rgba(242, 211, 94, 0.65),
-            rgba(212, 175, 55, 0.55)
-          );
-          border: 1px solid rgba(255, 255, 255, 0.22);
-          box-shadow: 0 0 90px rgba(230, 195, 74, 0.55);
+        @keyframes shine {
+            0% { transform: skewX(-20deg) translateX(-150%); }
+            100% { transform: skewX(-20deg) translateX(300%); }
         }
-
-        .layer-3 {
-          background: linear-gradient(
-            180deg,
-            rgba(212, 175, 55, 0.65),
-            rgba(165, 124, 0, 0.65)
-          );
-          border: 1px solid rgba(255, 255, 255, 0.15);
-          box-shadow: 0 0 120px rgba(212, 175, 55, 0.45);
-        }
-
-        /* =========================
-           BUTTON – BRIGHT, CRYSTAL (TONED DOWN)
-        ========================= */
-        .cta-button {
-          background: linear-gradient(
-            180deg,
-            #fff8d6,  /* Softer start instead of pure white */
-            #f2d35e,
-            #d4af37
-          );
-          color: #1a1200;
-          border: 1px solid rgba(255, 255, 255, 0.45);
-          box-shadow:
-            inset 0 1px 0 rgba(255, 255, 255, 0.5), /* Reduced opacity */
-            0 0 35px rgba(242, 211, 94, 0.4);       /* Reduced spread and opacity */
+        :global(.group:hover .group-hover\:animate-shine) {
+            animation: shine 0.75s cubic-bezier(0.4, 0, 0.2, 1);
         }
       `}</style>
     </footer>

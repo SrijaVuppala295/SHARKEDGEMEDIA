@@ -6,6 +6,7 @@ import gsap from "gsap"
 
 import { RevealText } from "@/components/common/reveal-text"
 import { SectionBadge } from "@/components/ui/section-badge"
+import { PremiumText } from "@/components/ui/premium-text"
 
 export function SolutionSection() {
   // ... (keep existing hook logic)
@@ -38,10 +39,7 @@ export function SolutionSection() {
       id="solution"
       className="relative w-full border-t border-white/5 px-4 py-16 lg:py-28 sm:px-6 overflow-hidden"
     >
-      {/* subtle radial glow behind heading */}
-      <div className="pointer-events-none absolute inset-0 opacity-60">
-        <div className="absolute left-1/2 top-0 h-72 w-[42rem] -translate-x-1/2 rounded-full bg-[radial-gradient(circle_at_center,rgba(255,199,0,0.18),transparent_65%)] blur-3xl" />
-      </div>
+
 
       <div className="relative mx-auto flex max-w-6xl flex-col items-center gap-14 lg:flex-row lg:items-center lg:justify-between lg:gap-20">
         {/* LEFT SIDE – heading + copy */}
@@ -55,30 +53,37 @@ export function SolutionSection() {
             </RevealText>
 
             <div className="space-y-3">
-              <RevealText>
-                <h2 className="text-3xl sm:text-4xl lg:text-[2.9rem] font-medium leading-tight text-center lg:text-left">
-                  The <span className="bg-gradient-to-r from-white via-white to-[#ffc700] bg-clip-text text-transparent">Shark Edge</span> Ecosystem.
-                </h2>
-              </RevealText>
-              <RevealText>
-                <span className="block text-2xl sm:text-3xl font-medium mt-2 bg-gradient-to-r from-white via-white to-[#ffc700] bg-clip-text text-transparent leading-tight text-center lg:text-left">
-                  People don&apos;t buy from business anymore, they buy from people.
-                </span>
-              </RevealText>
+              <h2 className="text-3xl sm:text-4xl lg:text-[2.9rem] font-medium leading-tight text-center lg:text-left">
+                <PremiumText
+                  text="The Shark Edge Ecosystem."
+                  as="span"
+                  className="bg-gradient-to-r from-white via-white to-[#f5c77a] bg-clip-text text-transparent"
+                />
+              </h2>
+              <span className="block text-2xl sm:text-3xl font-medium mt-2 leading-tight text-center lg:text-left">
+                <PremiumText
+                  text="People don't buy from business anymore, they buy from people."
+                  as="span"
+                  className="bg-gradient-to-r from-white via-white to-[#f5c77a] bg-clip-text text-transparent"
+                  delay={0.15}
+                />
+              </span>
 
-              <RevealText>
-                <p className="text-sm sm:text-base text-white/70 leading-relaxed">
-                  In today&apos;s market, your expertise alone isn&apos;t enough.
-                  Authority is your ultimate advantage.
-                </p>
-              </RevealText>
+              <div className="text-sm sm:text-base text-white/70 leading-relaxed">
+                <PremiumText
+                  text="In today's market, your expertise alone isn't enough. Authority is your ultimate advantage."
+                  as="p"
+                  delay={0.3}
+                />
+              </div>
 
-              <RevealText>
-                <p className="text-sm sm:text-base text-white/70 leading-relaxed">
-                  The problem isn&apos;t your product or service, it&apos;s your
-                  positioning &amp; branding.
-                </p>
-              </RevealText>
+              <div className="text-sm sm:text-base text-white/70 leading-relaxed">
+                <PremiumText
+                  text="The problem isn't your product or service, it's your positioning & branding."
+                  as="p"
+                  delay={0.4}
+                />
+              </div>
             </div>
           </div>
         </div>
@@ -86,10 +91,7 @@ export function SolutionSection() {
         {/* RIGHT SIDE – large circular loop */}
         <RevealText>
           <div className="relative flex items-center justify-center">
-            {/* background glow */}
-            <div className="pointer-events-none absolute inset-0 -z-10 flex items-center justify-center">
-              <div className="h-[26rem] w-[26rem] rounded-full bg-[radial-gradient(circle_at_center,rgba(255,199,0,0.28),transparent_70%)] blur-3xl opacity-80" />
-            </div>
+
 
             {/* main disc */}
             <div className="relative h-[22rem] w-[22rem] sm:h-[24rem] sm:w-[24rem]">

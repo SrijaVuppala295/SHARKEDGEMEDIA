@@ -10,6 +10,7 @@ import {
 } from "framer-motion";
 import { RevealText } from "@/components/common/reveal-text";
 import { SectionBadge } from "@/components/ui/section-badge";
+import { PremiumText } from "@/components/ui/premium-text";
 
 type Testimonial = {
   id: number;
@@ -83,7 +84,7 @@ export function TestimonialsSection() {
   useEffect(() => {
     const interval = setInterval(() => {
       if (!hoverRef.current) {
-        setActive((prev) => (prev + 1) % testimonials.length);
+        setActive((prev: number) => (prev + 1) % testimonials.length);
       }
     }, 10000); // 10 seconds (Even slower)
     return () => clearInterval(interval);
@@ -111,14 +112,13 @@ export function TestimonialsSection() {
             </SectionBadge>
           </RevealText>
 
-          <RevealText>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold text-white">
-              Client{" "}
-              <span className="bg-gradient-to-r from-white to-[#ffc700] bg-clip-text text-transparent">
-                Success
-              </span>
-            </h2>
-          </RevealText>
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold text-white">
+            <PremiumText
+              text="Client Success"
+              as="span"
+              className="bg-gradient-to-r from-white to-[#f5c77a] bg-clip-text text-transparent"
+            />
+          </h2>
         </div>
 
         {/* STACK */}
@@ -137,7 +137,7 @@ export function TestimonialsSection() {
                   animate={style}
                   transition={SPRING}
                   className="absolute inset-0 cursor-pointer"
-                  onClick={() => setActive((prev) => (prev + 1) % testimonials.length)}
+                  onClick={() => setActive((prev: number) => (prev + 1) % testimonials.length)}
                 >
                   <div className="h-full w-full rounded-2xl bg-[#0a0a0a] border border-white/20 shadow-2xl overflow-hidden flex flex-col group transition-colors duration-300 hover:border-white/40">
 
