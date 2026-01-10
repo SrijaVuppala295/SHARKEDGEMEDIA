@@ -3,7 +3,8 @@
 import React, { useEffect, useRef } from "react"
 import gsap from "gsap"
 import { RevealText } from "@/components/common/reveal-text"
-import StarBorder from "@/components/common/star-border"
+import { SectionBadge } from "@/components/ui/section-badge"
+import Image from "next/image"
 
 type CaseStudy = {
   id: number
@@ -112,23 +113,13 @@ export function BeforeAfterResults() {
         {/* HEADING */}
         <div className="text-center flex flex-col items-center">
           <RevealText>
-            <StarBorder
-              as="div"
-              className="mb-6 text-xs tracking-[0.2em] uppercase text-gray-400 hover:text-black transition-colors duration-300"
-              color="rgba(255, 255, 255, 0.2)"
-              speed="4s"
-              style={{
-                '--content-padding': '0.5rem 1.2rem',
-                '--star-hover-bg': 'linear-gradient(180deg, #F3DFA2 0%, #D4AF37 100%)',
-                '--star-hover-text': 'black',
-              } as React.CSSProperties}
-            >
-              BEFORE &amp; AFTER
-            </StarBorder>
+            <SectionBadge className="mb-6">
+              BEFORE & AFTER
+            </SectionBadge>
           </RevealText>
 
           <RevealText>
-            <h2 className="mt-4 text-4xl sm:text-5xl md:text-6xl font-semibold leading-tight text-white mb-4">
+            <h2 className="text-4xl sm:text-5xl md:text-6xl font-semibold leading-tight text-white">
               <span className="bg-gradient-to-r from-white via-white to-[#ffc700] bg-clip-text text-transparent">
                 Before &amp; After Results.
               </span>
@@ -146,7 +137,7 @@ export function BeforeAfterResults() {
         {/* CASE STUDIES */}
         <div className="mt-16 space-y-16">
           <RevealText>
-            <div className="space-y-24">
+            <div className="space-y-8">
               {CASE_STUDIES.map((cs) => {
                 return (
                   <div key={cs.id} className="grid gap-8 md:grid-cols-2 items-start">
@@ -162,9 +153,11 @@ export function BeforeAfterResults() {
                       </div>
 
                       <div className="mt-8 flex items-center gap-4">
-                        <img
-                          src={encodeURI(cs.avatar)}
+                        <Image
+                          src={cs.avatar}
                           alt={cs.name}
+                          width={56}
+                          height={56}
                           className="h-14 w-14 rounded-full object-cover grayscale opacity-80"
                         />
                         <div>
@@ -256,9 +249,11 @@ function AfterCard({ cs }: { cs: CaseStudy }) {
         <div className="mt-8 flex items-center gap-4">
           <div className="relative">
             <div className="absolute inset-0 rounded-full border border-[#facc15]" />
-            <img
-              src={encodeURI(cs.avatar)}
+            <Image
+              src={cs.avatar}
               alt={cs.name}
+              width={56}
+              height={56}
               className="h-14 w-14 rounded-full object-cover border-2 border-[#facc15]"
             />
           </div>

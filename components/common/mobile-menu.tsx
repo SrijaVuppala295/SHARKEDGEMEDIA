@@ -5,7 +5,7 @@ import * as Dialog from "@radix-ui/react-dialog";
 import { Menu, X } from "lucide-react";
 import Link from "next/link";
 import { useState } from "react";
-import StarBorder from "./star-border";
+import { GlowButton } from "@/components/ui/glow-button";
 
 interface MobileMenuProps {
   className?: string;
@@ -73,19 +73,9 @@ export const MobileMenu = ({ className }: MobileMenuProps) => {
 
             <div className="mt-8">
               <Link href="https://calendly.com/mkthoughts10/discovery-call?embed_domain=localhost&embed_type=Inline" target="_blank" onClick={handleLinkClick}>
-                <StarBorder
-                  as="div"
-                  className="rounded-full text-base font-semibold [--sb-color:white] hover:[--sb-color:#FFC700] transition-all duration-300"
-                  color="var(--sb-color)"
-                  speed="3s"
-                  style={{
-                    '--content-padding': '0.8rem 2rem',
-                    '--star-hover-bg': 'linear-gradient(180deg, #F3DFA2 0%, #D4AF37 100%)',
-                    '--star-hover-text': 'black'
-                  } as React.CSSProperties}
-                >
+                <GlowButton className="min-w-[200px] !text-xl !px-6 !py-5">
                   Let&apos;s Talk
-                </StarBorder>
+                </GlowButton>
               </Link>
             </div>
           </nav>

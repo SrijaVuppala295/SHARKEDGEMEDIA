@@ -118,6 +118,7 @@ function MasonryItem<T>({
 
     return (
         <div
+            className="relative hover:z-50"
             style={{
                 opacity: mounted ? 1 : 0,
                 transform: mounted ? 'translateY(0)' : 'translateY(50px)',

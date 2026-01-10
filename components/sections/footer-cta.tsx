@@ -5,6 +5,19 @@ import { useEffect, useRef } from "react"
 import gsap from "gsap"
 import { FaInstagram, FaLinkedin, FaFacebook } from "react-icons/fa"
 
+const socialLinks = [
+  {
+    icon: FaInstagram,
+    href: "https://www.instagram.com/sharkedge.media/",
+    className: "hover:text-[#E4405F]", // Pink/Red
+  },
+  {
+    icon: FaLinkedin,
+    href: "https://www.linkedin.com/in/sharkedge-media-104a2734b/",
+    className: "hover:text-[#0077b5]", // Blue
+  },
+]
+
 export function FooterCTA() {
   const layersRef = useRef<HTMLDivElement>(null)
 
@@ -58,7 +71,7 @@ export function FooterCTA() {
   }, [])
 
   return (
-    <footer id="discovery" className="text-white px-6 py-20 text-center space-y-12 overflow-hidden">
+    <footer id="discovery" className="text-white px-6 py-12 md:py-20 text-center space-y-12 overflow-hidden">
       {/* CTA AREA */}
       <div className="space-y-4">
         <h2 className="text-3xl md:text-4xl font-semibold bg-gradient-to-r from-white via-[#ffeebb] to-[#ffc700] bg-clip-text text-transparent pb-1">
@@ -112,9 +125,17 @@ export function FooterCTA() {
         <div className="text-lg font-medium">Shark Edge Media</div>
 
         <div className="flex justify-center gap-6 text-xl">
-          <a className="hover:text-yellow-300 transition"><FaInstagram /></a>
-          <a className="hover:text-yellow-300 transition"><FaLinkedin /></a>
-          <a className="hover:text-yellow-300 transition"><FaFacebook /></a>
+          {socialLinks.map((social, index) => (
+            <Link
+              key={index}
+              href={social.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={`${social.className} transition`}
+            >
+              <social.icon />
+            </Link>
+          ))}
         </div>
 
         <div className="text-sm text-white/60">

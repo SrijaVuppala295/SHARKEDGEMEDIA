@@ -5,7 +5,7 @@ import { useRef, useEffect } from "react"
 import gsap from "gsap"
 
 import { RevealText } from "@/components/common/reveal-text"
-import StarBorder from "@/components/common/star-border"
+import { SectionBadge } from "@/components/ui/section-badge"
 
 export function SolutionSection() {
   // ... (keep existing hook logic)
@@ -36,7 +36,7 @@ export function SolutionSection() {
   return (
     <section
       id="solution"
-      className="relative w-full border-t border-white/5 px-4 py-20 sm:px-6 lg:px-8 lg:py-28 overflow-hidden"
+      className="relative w-full border-t border-white/5 px-4 py-16 lg:py-28 sm:px-6 overflow-hidden"
     >
       {/* subtle radial glow behind heading */}
       <div className="pointer-events-none absolute inset-0 opacity-60">
@@ -49,19 +49,9 @@ export function SolutionSection() {
           <div className="space-y-6 flex flex-col items-center lg:items-start">
 
             <RevealText>
-              <StarBorder
-                as="div"
-                className="mb-6 text-xs tracking-[0.2em] uppercase text-gray-400 hover:text-black transition-colors duration-300"
-                color="rgba(255, 255, 255, 0.2)"
-                speed="4s"
-                style={{
-                  '--content-padding': '0.5rem 1.2rem',
-                  '--star-hover-bg': 'linear-gradient(180deg, #F3DFA2 0%, #D4AF37 100%)',
-                  '--star-hover-text': 'black',
-                } as React.CSSProperties}
-              >
+              <SectionBadge className="mb-[30px]">
                 SOLUTION
-              </StarBorder>
+              </SectionBadge>
             </RevealText>
 
             <div className="space-y-3">

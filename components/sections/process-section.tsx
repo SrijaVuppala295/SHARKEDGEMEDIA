@@ -5,7 +5,7 @@ import { useState, useEffect } from "react"
 import Image from "next/image"
 import { motion } from "framer-motion"
 import { RevealText } from "@/components/common/reveal-text"
-import StarBorder from "@/components/common/star-border"
+import { SectionBadge } from "@/components/ui/section-badge"
 
 type Phase = {
   id: number
@@ -105,7 +105,7 @@ export function ProcessSection() {
   return (
     <section
       id="process"
-      className="relative w-full border-t border-white/5 px-4 py-20 sm:px-6 lg:px-8 lg:py-28 overflow-hidden"
+      className="relative w-full border-t border-white/5 px-4 py-16 lg:py-28 sm:px-6 overflow-hidden"
     >
       {/* subtle background glow */}
       <div className="pointer-events-none absolute inset-0 opacity-60">
@@ -113,25 +113,14 @@ export function ProcessSection() {
       </div>
 
       <div className="relative mx-auto max-w-6xl space-y-10">
-        {/* Section label */}
-        <RevealText>
-          <StarBorder
-            as="div"
-            className="mb-6 mx-auto w-fit text-xs tracking-[0.2em] uppercase text-gray-400 hover:text-black transition-colors duration-300"
-            color="rgba(255, 255, 255, 0.2)"
-            speed="4s"
-            style={{
-              '--content-padding': '0.5rem 1.2rem',
-              '--star-hover-bg': 'linear-gradient(180deg, #F3DFA2 0%, #D4AF37 100%)',
-              '--star-hover-text': 'black',
-            } as React.CSSProperties}
-          >
-            OUR PROCESS
-          </StarBorder>
-        </RevealText>
-
         {/* Main heading + intro copy */}
-        <div className="space-y-4 text-center flex flex-col items-center">
+        <div className="text-center flex flex-col items-center">
+          <RevealText>
+            <SectionBadge className="mb-6">
+              OUR PROCESS
+            </SectionBadge>
+          </RevealText>
+
           <RevealText>
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold text-white">
               Here&apos;s exactly{" "}

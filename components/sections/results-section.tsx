@@ -3,7 +3,8 @@
 
 import { useState, useRef, useEffect } from "react"
 import { RevealText } from "@/components/common/reveal-text"
-import StarBorder from "@/components/common/star-border"
+import { SectionBadge } from "@/components/ui/section-badge"
+import Image from "next/image"
 
 function useCountUp(target: number, duration = 1600, interval = 10000) {
   const [value, setValue] = useState(0)
@@ -267,24 +268,14 @@ export function ResultsSection() {
 
           {/* Eyebrow */}
           <RevealText>
-            <StarBorder
-              as="div"
-              className="mb-6 text-xs tracking-[0.2em] uppercase text-gray-400 hover:text-black transition-colors duration-300"
-              color="rgba(255, 255, 255, 0.2)"
-              speed="4s"
-              style={{
-                '--content-padding': '0.5rem 1.2rem',
-                '--star-hover-bg': 'linear-gradient(180deg, #F3DFA2 0%, #D4AF37 100%)',
-                '--star-hover-text': 'black',
-              } as React.CSSProperties}
-            >
+            <SectionBadge className="mb-6">
               RESULTS
-            </StarBorder>
+            </SectionBadge>
           </RevealText>
 
           {/* Main Heading */}
           <RevealText>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold text-white mb-4">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold text-white">
               See what happens when your{" "}
               <span className="bg-gradient-to-r from-white via-white to-[#ffc700] bg-clip-text text-transparent">
                 content compounds.
@@ -334,17 +325,21 @@ export function ResultsSection() {
                           <source src={reel.videoSrc} type="video/mp4" />
                         </video>
                         {/* Fallback/Poster Image (visible if video loads slowly or fails) */}
-                        <img
+                        <Image
                           src={reel.thumbnail}
                           alt={reel.title}
+                          fill
                           className="absolute inset-0 h-full w-full object-cover z-0"
+                          unoptimized
                         />
                       </>
                     ) : (
-                      <img
+                      <Image
                         src={reel.thumbnail}
                         alt={reel.title}
+                        fill
                         className="absolute inset-0 h-full w-full object-cover"
+                        unoptimized
                       />
                     )}
 

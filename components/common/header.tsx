@@ -2,7 +2,7 @@
 
 import Link from "next/link"
 import { MobileMenu } from "./mobile-menu"
-import StarBorder from "./star-border"
+import { GlowButton } from "@/components/ui/glow-button"
 
 export const Header = () => {
   return (
@@ -50,19 +50,9 @@ export const Header = () => {
           {/* APPLY BUTTON — BIGGER + STRONGER */}
           <div className="hidden md:flex">
             <Link href="https://calendly.com/mkthoughts10/discovery-call?embed_domain=localhost&embed_type=Inline" target="_blank" rel="noopener noreferrer">
-              <StarBorder
-                as="div"
-                className="rounded-full text-sm font-semibold [--sb-color:white] hover:[--sb-color:#FFC700] transition-all duration-300"
-                color="var(--sb-color)"
-                speed="3s"
-                style={{
-                  '--content-padding': '0.7rem 1.7rem',
-                  '--star-hover-bg': 'linear-gradient(180deg, #F3DFA2 0%, #D4AF37 100%)',
-                  '--star-hover-text': 'black'
-                } as React.CSSProperties}
-              >
+              <GlowButton>
                 Let&apos;s Talk
-              </StarBorder>
+              </GlowButton>
             </Link>
           </div>
 

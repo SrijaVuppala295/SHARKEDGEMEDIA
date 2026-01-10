@@ -3,6 +3,7 @@
 
 import StarBorder from "@/components/common/star-border"
 import { InfiniteScroll } from "@/components/ui/infinite-scroll"
+import NextImage from "next/image"
 
 
 export function Hero() {
@@ -211,6 +212,7 @@ export function Hero() {
           <div className="mt-14 flex flex-col items-center gap-4">
             <div className="flex -space-x-3">
               {faceImages.map((src, i) => (
+                // eslint-disable-next-line @next/next/no-img-element
                 <img
                   key={`face-${i}`}
                   src={src}
@@ -235,10 +237,12 @@ export function Hero() {
 
             <InfiniteScroll speed={50} hoverSpeed={10} gap={120}>
               {companyLogos.map((logo, index) => (
-                <img
+                <NextImage
                   key={`${logo.alt}-${index}`}
                   src={logo.src}
                   alt={logo.alt}
+                  width={160}
+                  height={45}
                   className="company-logo-img object-contain transition-all duration-300
                               brightness-0 invert opacity-60
                               hover:opacity-100 hover:drop-shadow-[0_0_8px_rgba(255,255,255,0.6)]"

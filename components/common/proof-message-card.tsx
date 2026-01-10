@@ -9,21 +9,15 @@ export function ProofMessageCard({
     const theme = {
         color: "#FFD700", // Gold
         flare: "radial-gradient(circle at top left, rgba(255, 215, 0, 0.45) 0%, rgba(255, 215, 0, 0.1) 30%, transparent 60%)",
-        border: "border-t-[rgba(255,215,0,0.4)] border-l-[rgba(255,215,0,0.4)]",
     };
 
     return (
-        <div className="group relative rounded-3xl bg-black transition-transform duration-300 hover:scale-[1.02]">
-            {/* GLOW FLARE (Behind) */}
-            <div
-                className="absolute inset-0 rounded-3xl opacity-80 transition-opacity duration-300 group-hover:opacity-100 z-0 pointer-events-none"
-                style={{ background: theme.flare }}
-            />
+        <div className="group relative rounded-3xl bg-black transition-all duration-300 hover:scale-[1.02] hover:shadow-[0_0_30px_-10px_rgba(255,215,0,0.3)]">
+            {/* GLOW FLARE (Behind) - Removed to fix artifacts */}
+            {/* <div className="absolute inset-0..." /> */}
 
-            {/* BORDER HIGHLIGHT */}
-            <div
-                className={`absolute inset-0 rounded-3xl border border-white/0 ${theme.border} z-20 pointer-events-none`}
-            />
+            {/* BORDER HIGHLIGHT - Removed as per request */}
+            {/* <div className="absolute inset-0..." /> */}
 
             {/* CONTENT CONTAINER */}
             <div className="relative overflow-hidden rounded-3xl bg-black z-10">

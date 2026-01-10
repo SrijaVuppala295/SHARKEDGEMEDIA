@@ -2,7 +2,7 @@
 
 import { EyeOff, Tag, RefreshCcw, MegaphoneOff } from "lucide-react"
 import { RevealText } from "@/components/common/reveal-text"
-import StarBorder from "@/components/common/star-border"
+import { SectionBadge } from "@/components/ui/section-badge"
 
 const problems = [
   {
@@ -40,7 +40,7 @@ export function ProblemSection() {
   return (
     <section
       id="problem"
-      className="relative w-full px-4 py-24 sm:px-6 lg:px-8 overflow-hidden"
+      className="relative w-full px-4 py-16 md:py-24 sm:px-6 lg:px-8 overflow-hidden"
     >
 
 
@@ -52,19 +52,9 @@ export function ProblemSection() {
 
           {/* Eyebrow */}
           <RevealText>
-            <StarBorder
-              as="div"
-              className="mb-6 text-xs tracking-[0.2em] uppercase text-gray-400 hover:text-black transition-colors duration-300"
-              color="rgba(255, 255, 255, 0.2)"
-              speed="4s"
-              style={{
-                '--content-padding': '0.5rem 1.2rem',
-                '--star-hover-bg': 'linear-gradient(180deg, #F3DFA2 0%, #D4AF37 100%)',
-                '--star-hover-text': 'black',
-              } as React.CSSProperties}
-            >
+            <SectionBadge className="mb-6">
               PROBLEM
-            </StarBorder>
+            </SectionBadge>
           </RevealText>
 
           {/* Main Heading */}

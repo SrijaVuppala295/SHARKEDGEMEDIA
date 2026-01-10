@@ -3,6 +3,8 @@
 import { useState } from "react"
 import { RevealText } from "@/components/common/reveal-text"
 import StarBorder from "@/components/common/star-border"
+import { SectionBadge } from "@/components/ui/section-badge"
+import { AnimatePresence, motion } from "framer-motion"
 
 const faqs = [
   {
@@ -41,29 +43,19 @@ export function FaqSection() {
   const [openIndex, setOpenIndex] = useState<number | null>(null)
 
   return (
-    <section id="faq" className="py-24 px-4 text-white">
+    <section id="faqs" className="py-16 md:py-24 px-4 text-white">
       <div className="max-w-4xl mx-auto text-center mb-14 flex flex-col items-center">
 
         {/* Eyebrow */}
         <RevealText>
-          <StarBorder
-            as="div"
-            className="mb-6 text-xs tracking-[0.2em] uppercase text-gray-400 hover:text-black transition-colors duration-300"
-            color="rgba(255, 255, 255, 0.2)"
-            speed="4s"
-            style={{
-              '--content-padding': '0.5rem 1.2rem',
-              '--star-hover-bg': 'linear-gradient(180deg, #D4AF37 100%)',
-              '--star-hover-text': 'black',
-            } as React.CSSProperties}
-          >
+          <SectionBadge className="mb-6">
             FAQS
-          </StarBorder>
+          </SectionBadge>
         </RevealText>
 
         {/* Main Heading */}
         <RevealText>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold text-white mb-4">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold text-white">
             Frequently{" "}
             <span className="bg-gradient-to-r from-white via-white to-[#ffc700] bg-clip-text text-transparent">
               Asked Questions
@@ -92,43 +84,95 @@ export function FaqSection() {
                 onMouseLeave={() => setOpenIndex(null)}
                 onClick={() => setOpenIndex(isOpen ? null : index)}
               >
-                {isOpen ? (
-                  <StarBorder
-                    as="div"
-                    className="w-full"
-                    color="#f5c77a"
-                    speed="3s"
-                    style={{
-                      '--border-radius': '1.5rem',
-                      '--content-padding': '0'
-                    } as React.CSSProperties}
-                  >
-                    <div className="w-full text-left px-8 py-6 bg-black backdrop-blur-md rounded-[1.5rem] border border-[#f5c77a]/10 relative z-20">
-                      <div className="flex justify-between items-center">
-                        <h3 className="text-lg font-medium text-[#F3DFA2] transition-colors duration-300 drop-shadow-[0_0_10px_rgba(243,223,162,0.4)]">
-                          {faq.question}
-                        </h3>
-                        <span className="text-2xl rotate-180 text-[#F3DFA2] transition-all duration-300">
-                          −
-                        </span>
-                      </div>
-                      <div className="mt-4 text-white/90 leading-relaxed pr-8 animate-in fade-in slide-in-from-top-2 duration-300 font-light">
-                        {faq.answer}
-                      </div>
+                {/* 
+                  We structure this so that the StarBorder is visually consistent
+                  but handles the conditional 'glow' and expanded size smoothly.
+                */}
+                <div className="relative rounded-[1.5rem] bg-black">
+                  {/* Background/Border Layer */}
+                  <div className="absolute inset-0 rounded-[1.5rem] overflow-hidden">
+                    {/* 
+                      If open, preserve the StarBorder logic. 
+                      Ideally StarBorder wraps content, but here we might want to overlay it 
+                      or just use it as the 'border' provider.
+                      Given the existing code, StarBorder wraps the inner content.
+                      To support smooth height animation, we need the container to grow.
+                    */}
+                    <div className={`absolute inset-0 transition-opacity duration-500 ${isOpen ? "opacity-100" : "opacity-0"}`}>
+                      <StarBorder
+                        as="div"
+                        className="w-full h-full"
+                        color="#f5c77a"
+                        speed="6s"
+                        style={{
+                          '--border-radius': '1.5rem',
+                          '--content-padding': '0'
+                        } as React.CSSProperties}
+                      >
+                        {/* Empty children because we just want the border effect here? 
+                              Actually StarBorder renders children in .inner-content.
+                              Let's use StarBorder as the wrapper for EVERYTHING if possible, 
+                              but StarBorder might not animate its own height change smoothly if it re-renders.
+                              
+                              Let's go with the user's "box opening" request:
+                              Structure:
+                              Wrapper
+                                > AnimateHeight
+                                  > Content
+                                > Absolute StarBorder (visible if open)
+                                > Absolute StaticBorder (visible if closed)
+                          */}
+                        <div className="w-full h-full" />
+                      </StarBorder>
                     </div>
-                  </StarBorder>
-                ) : (
-                  <div className="w-full text-left px-8 py-6 rounded-[1.5rem] bg-black border border-white/10 transition-all duration-300 hover:bg-neutral-900">
+
+                    {/* Closed State Border (Static) */}
+                    <div className={`absolute inset-0 rounded-[1.5rem] border border-white/10 transition-opacity duration-300 ${isOpen ? "opacity-0" : "opacity-100 group-hover:bg-neutral-900"}`} />
+                  </div>
+
+                  {/* CONTENT LAYER */}
+                  <div className="relative z-10 w-full text-left px-8 py-6">
                     <div className="flex justify-between items-center">
-                      <h3 className="text-lg font-medium text-white transition-colors duration-300">
+                      <h3 className={`text-lg font-medium transition-colors duration-300 ${isOpen ? "text-[#F3DFA2] drop-shadow-[0_0_10px_rgba(243,223,162,0.4)]" : "text-white"}`}>
                         {faq.question}
                       </h3>
-                      <span className="text-2xl text-white/50 transition-all duration-300">
-                        +
-                      </span>
+                      {/* +/- Icon */}
+                      <div className="relative w-6 h-6 flex items-center justify-center">
+                        <motion.span
+                          animate={{ rotate: isOpen ? 180 : 0, opacity: isOpen ? 0 : 1 }}
+                          transition={{ duration: 0.3 }}
+                          className="absolute text-2xl text-white/50"
+                        >
+                          +
+                        </motion.span>
+                        <motion.span
+                          animate={{ rotate: isOpen ? 180 : 0, opacity: isOpen ? 1 : 0 }}
+                          transition={{ duration: 0.3 }}
+                          className="absolute text-2xl text-[#F3DFA2]"
+                        >
+                          −
+                        </motion.span>
+                      </div>
                     </div>
+
+                    {/* Animated Answer */}
+                    <AnimatePresence>
+                      {isOpen && (
+                        <motion.div
+                          initial={{ height: 0, opacity: 0 }}
+                          animate={{ height: "auto", opacity: 1 }}
+                          exit={{ height: 0, opacity: 0 }}
+                          transition={{ duration: 0.4, ease: [0.04, 0.62, 0.23, 0.98] }}
+                          className="overflow-hidden"
+                        >
+                          <div className="pt-4 text-white/90 leading-relaxed font-light pr-8">
+                            {faq.answer}
+                          </div>
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
                   </div>
-                )}
+                </div>
               </div>
             )
           })}
