@@ -47,7 +47,7 @@ export function PremiumText({
     as: Component = "h2",
     className = "",
     delay = 0,
-    duration = 0.8,
+    duration = 0.35,
     triggerOnce = true,
     priority = false,
     gradientFrom = "#ffffff",
@@ -68,7 +68,7 @@ export function PremiumText({
         visible: {
             opacity: 1,
             transition: {
-                staggerChildren: 0.08,
+                staggerChildren: 0.03,
                 delayChildren: priority ? 0 : delay,
             },
         },

@@ -36,7 +36,7 @@ export const metadata: Metadata = {
   description:
     "Level up your personal brand with proven authority positioning systems. Book a discovery call today.",
   icons: {
-    icon: [], // Explicitly no icon for now to remove default
+    icon: "/logos/favicon.png",
   }
 }
 
