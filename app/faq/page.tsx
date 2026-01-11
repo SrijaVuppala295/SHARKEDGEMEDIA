@@ -11,10 +11,8 @@ export const metadata: Metadata = {
 
 export default function FaqPage() {
     return (
-        <main>
-            <div className="pt-20">
-                <FaqSection />
-            </div>
-        </main>
+        <div className="pt-32">
+            <FaqSection />
+        </div>
     )
 }

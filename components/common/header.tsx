@@ -11,10 +11,7 @@ export const Header = () => {
         <header className="mt-5 flex items-center justify-between rounded-full border border-white/10 bg-black/20 backdrop-blur-md backdrop-saturate-180 px-8 py-3 shadow-lg shadow-black/20 ring-1 ring-white/10 ring-inset hover:shadow-xl hover:shadow-black/30 transition-all duration-500">
 
           {/* LOGO — BIGGER + BOLDER */}
-          <Link href="/" className="group flex items-center" onClick={(e) => {
-            e.preventDefault();
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-          }}>
+          <Link href="/" className="group flex items-center">
             <span
               className="
       text-xl md:text-2xl lg:text-[26px]

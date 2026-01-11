@@ -11,10 +11,8 @@ export const metadata: Metadata = {
 
 export default function ProcessPage() {
     return (
-        <main>
-            <div className="pt-20">
-                <ProcessSection />
-            </div>
-        </main>
+        <div className="pt-32">
+            <ProcessSection />
+        </div>
     )
 }

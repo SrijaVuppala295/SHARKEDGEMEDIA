@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 export default function TestimonialsPage() {
     return (
         <main>
-            <div className="pt-20">
+            <div className="pt-32">
                 <TestimonialsSection />
             </div>
         </main>

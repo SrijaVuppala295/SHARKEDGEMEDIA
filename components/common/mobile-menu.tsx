@@ -27,17 +27,15 @@ export const MobileMenu = ({ className }: MobileMenuProps) => {
 
   return (
     <Dialog.Root modal={false} open={isOpen} onOpenChange={setIsOpen}>
-      <Dialog.Trigger asChild>
-        <button
-          className={cn(
-            "group lg:hidden p-2 text-white transition-colors",
-            className
-          )}
-          aria-label="Open menu"
-        >
-          <Menu className="group-[[data-state=open]]:hidden" size={28} />
-          <X className="hidden group-[[data-state=open]]:block" size={28} />
-        </button>
+      <Dialog.Trigger
+        className={cn(
+          "group lg:hidden p-2 text-white transition-colors",
+          className
+        )}
+        aria-label="Open menu"
+      >
+        <Menu className="group-[[data-state=open]]:hidden" size={28} />
+        <X className="hidden group-[[data-state=open]]:block" size={28} />
       </Dialog.Trigger>
 
       <Dialog.Portal>

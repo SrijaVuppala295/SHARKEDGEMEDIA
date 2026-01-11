@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 export default function ResultsPage() {
     return (
         <main>
-            <div className="pt-20">
+            <div className="pt-32">
                 <ResultsSection />
                 <BeforeAfterResults />
             </div>
