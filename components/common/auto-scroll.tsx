@@ -1,9 +1,9 @@
 "use client"
 
-import { useEffect } from "react"
+import { useEffect, Suspense } from "react"
 import { useSearchParams } from "next/navigation"
 
-export function AutoScroll({ id }: { id: string }) {
+function AutoScrollContent({ id }: { id: string }) {
     const searchParams = useSearchParams()
 
     useEffect(() => {
@@ -19,4 +19,12 @@ export function AutoScroll({ id }: { id: string }) {
     }, [id, searchParams]) // Re-run if params change, though primarily on mount
 
     return null
+}
+
+export function AutoScroll({ id }: { id: string }) {
+    return (
+        <Suspense fallback={null}>
+            <AutoScrollContent id={id} />
+        </Suspense>
+    )
 }
