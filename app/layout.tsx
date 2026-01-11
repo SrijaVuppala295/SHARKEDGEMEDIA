@@ -32,9 +32,9 @@ const interLocal = localFont({
 })
 
 export const metadata: Metadata = {
-  title: "SharkEdge",
-  description:
-    "Level up your personal brand with proven authority positioning systems. Book a discovery call today.",
+  title: 'Sharkedge Media | Personal Branding for Entrepreneurs & VCs',
+  description: 'We help entrepreneurs, coaches, and doctors build authority through strategic content creation and personal branding.',
+  keywords: ['content agency', 'personal branding', 'video editing', 'marketing for coaches'],
   icons: {
     icon: "/logos/favicon.png",
   }
