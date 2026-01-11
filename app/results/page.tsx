@@ -10,11 +10,14 @@ export const metadata: Metadata = {
     },
 }
 
+import Home from "../page"
+import { AutoScroll } from "@/components/common/auto-scroll"
+
 export default function ResultsPage() {
     return (
-        <div className="pt-48">
-            <ResultsSection />
-            <BeforeAfterResults />
-        </div>
+        <>
+            <AutoScroll id="results" />
+            <Home />
+        </>
     )
 }

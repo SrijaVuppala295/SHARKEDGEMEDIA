@@ -9,10 +9,14 @@ export const metadata: Metadata = {
     },
 }
 
+import Home from "../page"
+import { AutoScroll } from "@/components/common/auto-scroll"
+
 export default function ProcessPage() {
     return (
-        <div className="pt-48">
-            <ProcessSection />
-        </div>
+        <>
+            <AutoScroll id="process" />
+            <Home />
+        </>
     )
 }
