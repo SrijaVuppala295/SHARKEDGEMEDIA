@@ -35,14 +35,19 @@ export const Header = () => {
           {/* CENTER NAV — BIGGER + BOLDER */}
           <nav className="hidden md:flex flex-1 items-center justify-center">
             <div className="flex items-center gap-10">
-              {["Clients", "Process", "Results", "FAQs"].map((item) => (
-                <a
-                  key={item}
-                  href={`#${item.toLowerCase().replace(/\s+/g, "-")}`}
+              {[
+                { label: "Clients", href: "/testimonials" },
+                { label: "Process", href: "/process" },
+                { label: "Results", href: "/results" },
+                { label: "FAQs", href: "/faq" },
+              ].map((item) => (
+                <Link
+                  key={item.label}
+                  href={item.href}
                   className="text-sm md:text-base font-bold text-white/90 hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-r hover:from-[#fde68a] hover:to-[#facc15] transition-all cursor-pointer tracking-wide"
                 >
-                  {item}
-                </a>
+                  {item.label}
+                </Link>
               ))}
             </div>
           </nav>
