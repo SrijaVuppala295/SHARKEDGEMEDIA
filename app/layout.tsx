@@ -2,6 +2,7 @@ import type React from "react"
 import type { Metadata } from "next"
 import { Inter, Manrope } from "next/font/google"
 import localFont from "next/font/local"
+import Script from "next/script"
 import "./globals.css"
 import { Header } from "@/components/common/header"
 import GradualBlur from "@/components/common/gradual-blur"
@@ -74,6 +75,24 @@ export default function RootLayout({
 }: {
   children: React.ReactNode
 }) {
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'MarketingAgency',
+    name: 'Shark Edge Media',
+    url: 'https://sharkedge.media',
+    logo: 'https://sharkedge.media/logos/favicon.png', // Using your favicon as logo
+    description: 'Stop being the "Invisible Expert." We build profitable personal brands for busy founders, coaches, and CEOs.',
+    sameAs: [
+      'https://www.instagram.com/sharkedge.media', // CHANGE THIS to your real link
+      'https://www.linkedin.com/in/sharkedge-media-104a2734b/' // CHANGE THIS to your real link
+    ],
+    contactPoint: {
+      '@type': 'ContactPoint',
+      contactType: 'sales',
+      email: 'mani@sharkedge.media' // Add your email
+    }
+  }
+
   return (
     <html lang="en" suppressHydrationWarning>
       <body
@@ -88,6 +107,11 @@ export default function RootLayout({
           overflow-x-hidden
         `}
       >
+        <Script
+          id="json-ld"
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
 
         <Header />
         <main className="relative z-10">
