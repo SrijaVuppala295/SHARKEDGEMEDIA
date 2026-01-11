@@ -12,11 +12,9 @@ export const metadata: Metadata = {
 
 export default function ResultsPage() {
     return (
-        <main>
-            <div className="pt-32">
-                <ResultsSection />
-                <BeforeAfterResults />
-            </div>
-        </main>
+        <div className="pt-48">
+            <ResultsSection />
+            <BeforeAfterResults />
+        </div>
     )
 }

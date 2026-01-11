@@ -11,10 +11,8 @@ export const metadata: Metadata = {
 
 export default function TestimonialsPage() {
     return (
-        <main>
-            <div className="pt-32">
-                <TestimonialsSection />
-            </div>
-        </main>
+        <div className="pt-48">
+            <TestimonialsSection />
+        </div>
     )
 }
