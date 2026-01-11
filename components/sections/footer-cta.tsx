@@ -77,18 +77,29 @@ export function FooterCTA() {
         <div className="mt-24 md:mt-32 w-full border-t border-white/10 pt-10 flex flex-col md:flex-row justify-between items-center gap-6 text-sm text-white/40">
           <div>© Shark Edge Media. All rights reserved.</div>
 
-          <div className="flex gap-6 text-xl text-white/80">
-            {socialLinks.map((social, index) => (
-              <Link
-                key={index}
-                href={social.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className={`${social.className} transition-colors duration-300`}
-              >
-                <social.icon />
-              </Link>
-            ))}
+          <div className="flex flex-col md:flex-row gap-6 md:gap-12">
+            <div className="text-left">
+              <h4 className="text-white font-medium mb-4">Company</h4>
+              <ul className="space-y-2">
+                <li><Link href="/process" className="hover:text-white transition-colors">Our Process</Link></li>
+                <li><Link href="/results" className="hover:text-white transition-colors">Client Results</Link></li>
+                <li><Link href="/testimonials" className="hover:text-white transition-colors">Testimonials</Link></li>
+                <li><Link href="/faq" className="hover:text-white transition-colors">FAQ</Link></li>
+              </ul>
+            </div>
+            <div className="flex gap-6 text-xl text-white/80 self-start md:self-auto">
+              {socialLinks.map((social, index) => (
+                <Link
+                  key={index}
+                  href={social.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`${social.className} transition-colors duration-300`}
+                >
+                  <social.icon />
+                </Link>
+              ))}
+            </div>
           </div>
         </div>
       </div>
@@ -109,6 +120,6 @@ export function FooterCTA() {
             animation: shine 0.75s cubic-bezier(0.4, 0, 0.2, 1);
         }
       `}</style>
-    </footer>
+    </footer >
   )
 }

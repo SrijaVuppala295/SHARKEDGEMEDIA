@@ -99,7 +99,7 @@ export function TestimonialsSection() {
   };
 
   return (
-    <section className="relative w-full py-16 md:py-24 px-4 overflow-hidden border-t border-white/5">
+    <section id="testimonials" className="relative w-full py-16 md:py-24 px-4 overflow-hidden border-t border-white/5">
       <div className="mx-auto max-w-6xl">
 
         {/* 🔒 HEADING — UNCHANGED */}

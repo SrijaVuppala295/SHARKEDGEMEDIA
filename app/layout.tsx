@@ -32,9 +32,37 @@ const interLocal = localFont({
 })
 
 export const metadata: Metadata = {
-  title: 'Sharkedge Media | Personal Branding for Entrepreneurs & VCs',
-  description: 'We help entrepreneurs, coaches, and doctors build authority through strategic content creation and personal branding.',
-  keywords: ['content agency', 'personal branding', 'video editing', 'marketing for coaches'],
+  title: 'Shark Edge Media | Personal Branding for Founders & Expert Coaches',
+  description: 'Stop being the "Invisible Expert." We build profitable personal brands for busy founders, coaches, and CEOs in just 2 hours a month. Strategy, Video, & Growth.',
+  keywords: [
+    'personal branding agency',
+    'content marketing for founders',
+    'video editing for coaches',
+    'authority positioning',
+    'personal branding for ceos',
+    'social media management',
+    'done for you content creation',
+    'thought leadership marketing',
+    'Shark Edge Media'
+  ],
+  openGraph: {
+    title: 'Shark Edge Media | Level Up Your Personal Brand',
+    description: 'The "Anti-Hustle" branding agency. We help entrepreneurs and coaches turn their expertise into an authoritative brand with zero time wasted.',
+    siteName: 'Shark Edge Media',
+    locale: 'en_US',
+    type: 'website',
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
   icons: {
     icon: "/logos/favicon.png",
   }
