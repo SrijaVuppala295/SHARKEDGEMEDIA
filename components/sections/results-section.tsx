@@ -109,7 +109,7 @@ const REELS: Reel[] = [
     context: "Positioning you as the go-to expert in your space.",
     duration: "0:49",
     thumbnail:
-      "/Thumbnails/Video1.jpg",
+      "/thumbnails/Video1.jpg",
     videoSrc: "https://res.cloudinary.com/dlliqtujb/video/upload/v1767768388/Video_1_1_rfqzot.mp4",
   },
   {
@@ -118,7 +118,7 @@ const REELS: Reel[] = [
     context: "Turning your journey into client-magnet episodes.",
     duration: "0:32",
     thumbnail:
-      "/Thumbnails/Video2.jpg",
+      "/thumbnails/Video2.jpg",
     videoSrc: "https://res.cloudinary.com/dlliqtujb/video/upload/v1767768396/video_2_1_uznxqn.mp4",
   },
   {
@@ -127,7 +127,7 @@ const REELS: Reel[] = [
     context: "Explainers that simplify complex topics.",
     duration: "0:27",
     thumbnail:
-      "/Thumbnails/Video3.jpg",
+      "/thumbnails/Video3.jpg",
     videoSrc: "https://res.cloudinary.com/dlliqtujb/video/upload/v1767766998/Video_3_nzywyv.mp4",
   },
   {
@@ -136,7 +136,7 @@ const REELS: Reel[] = [
     context: "Showing the real person behind the brand.",
     duration: "0:41",
     thumbnail:
-      "/Thumbnails/Video4.jpg",
+      "/thumbnails/Video4.jpg",
     videoSrc: "https://res.cloudinary.com/dlliqtujb/video/upload/v1767768400/Video_4_1_csknfc.mp4",
   },
   {
@@ -145,7 +145,7 @@ const REELS: Reel[] = [
     context: "Clear CTAs that move people to book or buy.",
     duration: "0:36",
     thumbnail:
-      "/Thumbnails/Video5.jpg",
+      "/thumbnails/Video5.jpg",
     videoSrc: "https://res.cloudinary.com/dlliqtujb/video/upload/v1767767011/Video_5_raijsf.mp4",
   },
   {
@@ -154,7 +154,7 @@ const REELS: Reel[] = [
     context: "Clipping your best client wins and key moments.",
     duration: "0:53",
     thumbnail:
-      "/Thumbnails/Video6.jpg",
+      "/thumbnails/Video6.jpg",
     videoSrc: "https://res.cloudinary.com/dlliqtujb/video/upload/v1767766977/video_6_tablzl.mp4",
   },
   {
@@ -163,7 +163,7 @@ const REELS: Reel[] = [
     context: "Short, sharp tips that boost saves and shares.",
     duration: "0:18",
     thumbnail:
-      "/Thumbnails/Video7.jpg",
+      "/thumbnails/Video7.jpg",
     videoSrc: "https://res.cloudinary.com/dlliqtujb/video/upload/v1767768455/Video_7_1_aqsexi.mp4",
   },
   {
@@ -172,7 +172,7 @@ const REELS: Reel[] = [
     context: "Documenting how you actually work with clients.",
     duration: "0:44",
     thumbnail:
-      "/Thumbnails/Video8.jpg",
+      "/thumbnails/Video8.jpg",
     videoSrc: "https://res.cloudinary.com/dlliqtujb/video/upload/v1767767030/Video_8_hgdqct.mp4",
   },
   // {
@@ -188,7 +188,7 @@ const REELS: Reel[] = [
     title: "Community building",
     context: "Engaging directly with your audience.",
     duration: "0:35",
-    thumbnail: "/Thumbnails/Video10.jpg",
+    thumbnail: "/thumbnails/Video10.jpg",
     videoSrc: "https://res.cloudinary.com/dlliqtujb/video/upload/v1767766977/video_10_msewkh.mp4",
   },
   {
@@ -196,7 +196,7 @@ const REELS: Reel[] = [
     title: "Strategic highlights",
     context: "Showcasing key milestones.",
     duration: "0:45",
-    thumbnail: "/Thumbnails/Video11.jpg",
+    thumbnail: "/thumbnails/Video11.jpg",
     videoSrc: "https://res.cloudinary.com/dlliqtujb/video/upload/v1767766981/video_11_ljdgro.mp4",
   },
   // {
