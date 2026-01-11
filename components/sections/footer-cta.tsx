@@ -60,7 +60,7 @@ export function FooterCTA() {
 
         {/* Premium Button */}
         <Link
-          href="https://calendly.com/mkthoughts10/discovery-call"
+          href="https://calendly.com/sharkedge/30min"
           target="_blank"
           className="group relative inline-flex items-center justify-center gap-3 px-8 py-3 bg-[#f5c77a] text-black rounded-full font-medium text-lg transition-all duration-300 hover:scale-105 hover:shadow-[0_0_40px_rgba(245,199,122,0.3)]"
         >

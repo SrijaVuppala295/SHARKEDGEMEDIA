@@ -35,7 +35,7 @@ const PHASES: Phase[] = [
       "We ensure you attract and connect with the right audience from day one.",
     ],
     image: {
-      src: "/process-images/phase-01.webp",
+      src: "/process-images/1.JPG",
       alt: "Founder working on brand strategy with notebook and laptop",
     },
   },
@@ -51,7 +51,7 @@ const PHASES: Phase[] = [
       "We establish your authority and convert followers into clients.",
     ],
     image: {
-      src: "/process-images/phase-02.webp",
+      src: "/process-images/2.JPG",
       alt: "Team brainstorming content ideas with sticky notes",
     },
   },
@@ -67,7 +67,7 @@ const PHASES: Phase[] = [
       "We make you look like the expert you are.",
     ],
     image: {
-      src: "/process-images/phase-03.webp",
+      src: "/process-images/3.JPG",
       alt: "Creator filming content in a studio setup",
     },
   },
@@ -83,7 +83,7 @@ const PHASES: Phase[] = [
       "It drives maximum impact and ROI.",
     ],
     image: {
-      src: "/process-images/phase-04.webp",
+      src: "/process-images/4.PNG",
       alt: "Editor working on video timeline on a computer",
     },
   },

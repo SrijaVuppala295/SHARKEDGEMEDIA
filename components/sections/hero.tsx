@@ -26,12 +26,6 @@ export function Hero() {
       width: 220,
       shouldInvert: false,
     },
-    // {
-    //   alt: "BabyGrip",
-    //   src: "/logos/baby-grip.webp",
-    //   height: 48,
-    //   width: 180,
-    // },
     {
       alt: "Cleo’s Kitchen",
       src: "/logos/cleos.png",
@@ -39,12 +33,6 @@ export function Hero() {
       width: 200,
       shouldInvert: true,
     },
-    // {
-    //   alt: "Color Swell",
-    //   src: "/logos/colors-swell.webp",
-    //   height: 48,
-    //   width: 180,
-    // },
     {
       alt: "Fame Machine",
       src: "/logos/fame-machine.webp",
@@ -62,9 +50,9 @@ export function Hero() {
     {
       alt: "Home Hulab",
       src: "/logos/home-hulab.png",
-      height: 100,
+      height: 120,
       width: 220,
-      shouldInvert: false,
+      shouldInvert: true,
     },
     {
       alt: "HSS",
@@ -80,13 +68,6 @@ export function Hero() {
       width: 170,
       shouldInvert: false,
     },
-    // {
-    //   alt: "Lucid",
-    //   src: "/logos/lucid.png",
-    //   height: 48,
-    //   width: 180,
-    //   shouldInvert: true,
-    // },
     {
       alt: "Asian Paints",
       src: "/logos/asian-paints.png",
@@ -216,17 +197,12 @@ export function Hero() {
           <div className="mt-10 md:mt-12 flex justify-center">
             <StarBorder
               as="a"
-              href="/#discovery"
+              href="https://calendly.com/sharkedge/30min"
               thickness={1.5}
               speed="3.5s"
               color="#f5c77a"
-              onClick={(e: React.MouseEvent<HTMLAnchorElement>) => {
-                e.preventDefault();
-                const target = document.getElementById('discovery');
-                if (target) {
-                  target.scrollIntoView({ behavior: 'smooth' });
-                }
-              }}
+              target="_blank"
+              rel="noopener noreferrer"
             >
               Book a Discovery Call
             </StarBorder>

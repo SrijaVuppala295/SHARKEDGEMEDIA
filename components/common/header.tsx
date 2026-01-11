@@ -49,7 +49,7 @@ export const Header = () => {
 
           {/* APPLY BUTTON — BIGGER + STRONGER */}
           <div className="hidden md:flex">
-            <Link href="https://calendly.com/mkthoughts10/discovery-call?embed_domain=localhost&embed_type=Inline" target="_blank" rel="noopener noreferrer">
+            <Link href="https://calendly.com/sharkedge/30min" target="_blank" rel="noopener noreferrer">
               <GlowButton>
                 Let&apos;s Talk
               </GlowButton>
