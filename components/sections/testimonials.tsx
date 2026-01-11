@@ -5,8 +5,6 @@ import Image from "next/image";
 import {
   motion,
   AnimatePresence,
-  useMotionValue,
-  useSpring,
 } from "framer-motion";
 import { RevealText } from "@/components/common/reveal-text";
 import { SectionBadge } from "@/components/ui/section-badge";
@@ -207,92 +205,23 @@ export function TestimonialsSection() {
 }
 
 function TestimonialImage({ t }: { t: Testimonial }) {
-  const ref = useRef<HTMLDivElement>(null);
-
-  // Motion Values
-  const x = useMotionValue(0);
-  const y = useMotionValue(0);
-  const rotateX = useSpring(useMotionValue(0), { stiffness: 100, damping: 30, mass: 2 });
-  const rotateY = useSpring(useMotionValue(0), { stiffness: 100, damping: 30, mass: 2 });
-  const scale = useSpring(1, { stiffness: 100, damping: 30, mass: 2 });
-  const opacity = useSpring(0);
-  const rotateFigcaption = useSpring(0, { stiffness: 350, damping: 30, mass: 1 });
-
-  // Use ref for lastY to avoid re-renders, unlike the provided snippet which used state
-  const lastY = useRef(0);
-
-  const handleMouse = (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!ref.current) return;
-
-    const rect = ref.current.getBoundingClientRect();
-    const offsetX = e.clientX - rect.left - rect.width / 2;
-    const offsetY = e.clientY - rect.top - rect.height / 2;
-
-    const rotateAmplitude = 14;
-    const rotationX = (offsetY / (rect.height / 2)) * -rotateAmplitude;
-    const rotationY = (offsetX / (rect.width / 2)) * rotateAmplitude;
-
-    rotateX.set(rotationX);
-    rotateY.set(rotationY);
-
-    x.set(e.clientX - rect.left);
-    y.set(e.clientY - rect.top);
-
-    const velocityY = offsetY - lastY.current;
-    rotateFigcaption.set(-velocityY * 0.6);
-    lastY.current = offsetY;
-  };
-
-  const handleMouseEnter = () => {
-    scale.set(1.02); // Slight hover scale requested in logic, keeping it subtle
-    opacity.set(1);
-  };
-
-  const handleMouseLeave = () => {
-    opacity.set(0);
-    scale.set(1);
-    rotateX.set(0);
-    rotateY.set(0);
-    rotateFigcaption.set(0);
-  };
-
   return (
     <figure
-      ref={ref}
       className={`relative w-full md:w-[360px] h-[220px] md:h-[320px] rounded-2xl shrink-0 transition-colors duration-300 bg-white/5 ${(t.id === 1 || t.id === 2) ? "bg-black/20" : ""}`}
-      style={{ perspective: 1000 }} // Essential for 3D tilt
-      onMouseMove={handleMouse}
-      onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}
     >
-      <motion.div
+      <div
         className="w-full h-full rounded-2xl overflow-hidden border border-white/20 shadow-lg"
       >
         <Image
           src={t.image}
           alt={t.name}
           fill
-          className="object-cover pointer-events-none rounded-2xl" // Explicitly added rounded here too
+          className="object-cover pointer-events-none rounded-2xl"
           style={{
             objectPosition: t.id === 1 ? "center 40%" : t.id === 2 ? "center 20%" : "center center"
           }}
         />
-      </motion.div>
-
-      {/* Tooltip with Velocity Rotation */}
-      <motion.figcaption
-        className="absolute pointer-events-none bg-white rounded-lg px-4 py-2 text-sm font-bold text-black border border-white/10 shadow-2xl z-20 whitespace-nowrap"
-        style={{
-          x,
-          y,
-          opacity,
-          rotate: rotateFigcaption,
-          left: 0,
-          top: 0
-        }}
-      >
-        {t.followers}
-      </motion.figcaption>
+      </div>
     </figure >
   );
 }

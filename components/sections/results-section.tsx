@@ -175,14 +175,14 @@ const REELS: Reel[] = [
       "/Thumbnails/Video8.jpg",
     videoSrc: "https://res.cloudinary.com/dlliqtujb/video/upload/v1767767030/Video_8_hgdqct.mp4",
   },
-  {
-    id: 9,
-    title: "Viral potential",
-    context: "Maximizing reach with trending formats.",
-    duration: "0:22",
-    thumbnail: "https://images.unsplash.com/photo-1512428559087-560fa5ceab42?auto=format&fit=crop&w=900&q=80",
-    videoSrc: "https://res.cloudinary.com/dlliqtujb/video/upload/v1767766982/video.9_inc6fs.mp4",
-  },
+  // {
+  //   id: 9,
+  //   title: "Viral potential",
+  //   context: "Maximizing reach with trending formats.",
+  //   duration: "0:22",
+  //   thumbnail: "https://images.unsplash.com/photo-1512428559087-560fa5ceab42?auto=format&fit=crop&w=900&q=80",
+  //   videoSrc: "https://res.cloudinary.com/dlliqtujb/video/upload/v1767766982/video.9_inc6fs.mp4",
+  // },
   {
     id: 10,
     title: "Community building",
@@ -199,14 +199,14 @@ const REELS: Reel[] = [
     thumbnail: "/Thumbnails/Video11.jpg",
     videoSrc: "https://res.cloudinary.com/dlliqtujb/video/upload/v1767766981/video_11_ljdgro.mp4",
   },
-  {
-    id: 12,
-    title: "Brand essence",
-    context: "Visualizing your core values.",
-    duration: "0:30",
-    thumbnail: "https://images.unsplash.com/photo-1512428559087-560fa5ceab42?auto=format&fit=crop&w=900&q=80",
-    videoSrc: "https://res.cloudinary.com/dlliqtujb/video/upload/v1767766980/video_12_mx7cuk.mp4",
-  },
+  // {
+  //   id: 12,
+  //   title: "Brand essence",
+  //   context: "Visualizing your core values.",
+  //   duration: "0:30",
+  //   thumbnail: "https://images.unsplash.com/photo-1512428559087-560fa5ceab42?auto=format&fit=crop&w=900&q=80",
+  //   videoSrc: "https://res.cloudinary.com/dlliqtujb/video/upload/v1767766980/video_12_mx7cuk.mp4",
+  // },
 
 ]
 
@@ -359,17 +359,7 @@ export function ResultsSection() {
                       </div>
 
                       {/* Text */}
-                      <div className="absolute bottom-0 z-20 w-full p-5 pointer-events-none">
-                        <p className="text-xs sm:text-sm text-white/80 mb-1 font-medium drop-shadow-md">
-                          {reel.duration}
-                        </p>
-                        <h3 className="text-base sm:text-lg font-bold text-white drop-shadow-md">
-                          {reel.title}
-                        </h3>
-                        <p className="mt-1 text-xs sm:text-sm text-white/90 drop-shadow-md">
-                          {reel.context}
-                        </p>
-                      </div>
+
                     </div>
 
                     {/* Click overlay for when it is playing to allow pausing */}
@@ -393,24 +383,24 @@ export function ResultsSection() {
             <div className="max-w-5xl mx-auto grid gap-6 sm:grid-cols-3">
 
               <MetricCard
-                value={1920}
+                value={1900}
                 suffix="+"
                 title="Videos Created"
-                subtitle="for our clients"
+                subtitle=""
               />
 
               <MetricCard
                 value={150}
                 suffix="M+"
-                title="Organic Views"
-                subtitle="across platforms"
+                title="Views"
+                subtitle=""
               />
 
               <MetricCard
                 value={140}
                 suffix="+"
                 title="Relationships Built"
-                subtitle="for our clients"
+                subtitle=""
               />
 
             </div>
