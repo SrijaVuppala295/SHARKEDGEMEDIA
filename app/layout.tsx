@@ -5,6 +5,7 @@ import localFont from "next/font/local"
 import "./globals.css"
 import { Header } from "@/components/common/header"
 import GradualBlur from "@/components/common/gradual-blur"
+import { FooterCTA } from "@/components/sections/footer-cta"
 
 /* Body / UI font */
 const inter = Inter({
@@ -92,6 +93,7 @@ export default function RootLayout({
         <main className="relative z-10">
           {children}
         </main>
+        <FooterCTA />
         <GradualBlur direction="bottom" blurLayers={1} maxBlur={1} height="20px" />
       </body>
     </html>

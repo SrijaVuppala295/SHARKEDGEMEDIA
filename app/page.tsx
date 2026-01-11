@@ -10,7 +10,7 @@ const ProcessSection = dynamic(() => import("@/components/sections/process-secti
 const ResultsSection = dynamic(() => import("@/components/sections/results-section").then(mod => ({ default: mod.ResultsSection })))
 const BeforeAfterResults = dynamic(() => import("@/components/sections/before-after-results").then(mod => ({ default: mod.BeforeAfterResults })))
 const FaqSection = dynamic(() => import("@/components/sections/faq-section").then(mod => ({ default: mod.FaqSection })))
-const FooterCTA = dynamic(() => import("@/components/sections/footer-cta").then(mod => ({ default: mod.FooterCTA })))
+
 
 export default function Home() {
   return (
@@ -24,7 +24,6 @@ export default function Home() {
       <ResultsSection />
       <BeforeAfterResults />
       <FaqSection />
-      <FooterCTA />
     </>
   )
 }
