@@ -21,75 +21,86 @@ export function Hero() {
   const companyLogos = [
     {
       alt: "Antomolio",
-      src: "/logos/antomolio.webp",
-      height: 36,
-      width: "auto",
+      src: "/logos/Antimolio-new.png",
+      height: 75,
+      width: 220,
+      shouldInvert: false,
     },
-    {
-      alt: "BabyGrip",
-      src: "/logos/baby-grip.webp",
-      height: 36,
-      width: "auto",
-    },
+    // {
+    //   alt: "BabyGrip",
+    //   src: "/logos/baby-grip.webp",
+    //   height: 48,
+    //   width: 180,
+    // },
     {
       alt: "Cleo’s Kitchen",
-      src: "/logos/cleos-kitchen.webp",
-      height: 36,
-      width: "auto",
+      src: "/logos/cleos.png",
+      height: 55,
+      width: 200,
+      shouldInvert: true,
     },
-    {
-      alt: "Color Swell",
-      src: "/logos/colors-swell.webp",
-      height: 36,
-      width: "auto",
-    },
+    // {
+    //   alt: "Color Swell",
+    //   src: "/logos/colors-swell.webp",
+    //   height: 48,
+    //   width: 180,
+    // },
     {
       alt: "Fame Machine",
       src: "/logos/fame-machine.webp",
-      height: 36,
-      width: "auto",
+      height: 48,
+      width: 180,
+      shouldInvert: false,
     },
     {
       alt: "Goods",
       src: "/logos/goods.webp",
-      height: 36,
-      width: "auto",
+      height: 48,
+      width: 180,
+      shouldInvert: true,
     },
     {
       alt: "Home Hulab",
-      src: "/logos/home-hulab.webp",
-      height: 36,
-      width: "auto",
+      src: "/logos/home-hulab.png",
+      height: 100,
+      width: 220,
+      shouldInvert: false,
     },
     {
       alt: "HSS",
       src: "/logos/hss.webp",
-      height: 36,
-      width: "auto",
+      height: 48,
+      width: 160,
+      shouldInvert: false,
     },
     {
       alt: "Terra",
       src: "/logos/terra-new.webp",
-      height: 36,
-      width: "auto",
+      height: 48,
+      width: 170,
+      shouldInvert: false,
     },
+    // {
+    //   alt: "Lucid",
+    //   src: "/logos/lucid.png",
+    //   height: 48,
+    //   width: 180,
+    //   shouldInvert: true,
+    // },
     {
-      alt: "Lucid",
-      src: "/logos/lucid-digitals.webp",
-      height: 36,
-      width: "auto",
-    },
-    {
-      alt: "PAANI",
-      src: "/logos/paani.webp",
-      height: 36,
-      width: "auto",
+      alt: "Asian Paints",
+      src: "/logos/asian-paints.png",
+      height: 48,
+      width: 190,
+      shouldInvert: false,
     },
     {
       alt: "Rosa",
-      src: "/logos/rosa-altmoni.webp",
-      height: 36,
-      width: "auto",
+      src: "/logos/rosa.png",
+      height: 48,
+      width: 160,
+      shouldInvert: false,
+      invert: true,
     },
   ]
 
@@ -276,20 +287,21 @@ export function Hero() {
             {/* Right fade */}
             <div className="pointer-events-none absolute right-0 top-0 z-10 h-full w-24 bg-gradient-to-l from-black to-transparent" />
 
-            <InfiniteScroll speed={50} hoverSpeed={10} gap={120}>
-              {companyLogos.map((logo, index) => (
+            <InfiniteScroll speed={50} hoverSpeed={10} gap={100}>
+              {companyLogos.map((logo: any, index) => (
                 <NextImage
                   key={`${logo.alt}-${index}`}
                   src={logo.src}
                   alt={logo.alt}
-                  width={160}
-                  height={45}
-                  className="company-logo-img object-contain transition-all duration-300
-                              brightness-0 invert opacity-60
-                              hover:opacity-100 hover:drop-shadow-[0_0_8px_rgba(255,255,255,0.6)]"
+                  width={logo.width}
+                  height={logo.height}
+                  className={`company-logo-img object-contain transition-all duration-300
+                              ${logo.original ? 'opacity-100' : (logo.invert ? 'opacity-50' : (logo.shouldInvert ? 'opacity-50' : 'brightness-0 invert opacity-50'))}
+                              hover:opacity-100`}
                   style={{
-                    height: "45px", // Enforced 45px as requested
-                    width: "auto",
+                    height: logo.height,
+                    width: logo.width,
+                    filter: logo.original ? "" : (logo.invert ? "invert(1)" : (logo.shouldInvert ? "brightness(0) invert(1)" : ""))
                   }}
                   loading="lazy"
                 />

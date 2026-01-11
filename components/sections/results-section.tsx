@@ -109,7 +109,7 @@ const REELS: Reel[] = [
     context: "Positioning you as the go-to expert in your space.",
     duration: "0:49",
     thumbnail:
-      "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=900&q=80",
+      "/Thumbnails/Video1.jpg",
     videoSrc: "https://res.cloudinary.com/dlliqtujb/video/upload/v1767768388/Video_1_1_rfqzot.mp4",
   },
   {
@@ -118,7 +118,7 @@ const REELS: Reel[] = [
     context: "Turning your journey into client-magnet episodes.",
     duration: "0:32",
     thumbnail:
-      "https://images.unsplash.com/photo-1516321497487-e288fb19713f?auto=format&fit=crop&w=900&q=80",
+      "/Thumbnails/Video2.jpg",
     videoSrc: "https://res.cloudinary.com/dlliqtujb/video/upload/v1767768396/video_2_1_uznxqn.mp4",
   },
   {
@@ -127,7 +127,7 @@ const REELS: Reel[] = [
     context: "Explainers that simplify complex topics.",
     duration: "0:27",
     thumbnail:
-      "https://images.unsplash.com/photo-1513258496099-48168024aec0?auto=format&fit=crop&w=900&q=80",
+      "/Thumbnails/Video3.jpg",
     videoSrc: "https://res.cloudinary.com/dlliqtujb/video/upload/v1767766998/Video_3_nzywyv.mp4",
   },
   {
@@ -136,7 +136,7 @@ const REELS: Reel[] = [
     context: "Showing the real person behind the brand.",
     duration: "0:41",
     thumbnail:
-      "https://images.unsplash.com/photo-1545239351-1141bd82e8a6?auto=format&fit=crop&w=900&q=80",
+      "/Thumbnails/Video4.jpg",
     videoSrc: "https://res.cloudinary.com/dlliqtujb/video/upload/v1767768400/Video_4_1_csknfc.mp4",
   },
   {
@@ -145,7 +145,7 @@ const REELS: Reel[] = [
     context: "Clear CTAs that move people to book or buy.",
     duration: "0:36",
     thumbnail:
-      "https://images.unsplash.com/photo-1553877522-43269d4ea984?auto=format&fit=crop&w=900&q=80",
+      "/Thumbnails/Video5.jpg",
     videoSrc: "https://res.cloudinary.com/dlliqtujb/video/upload/v1767767011/Video_5_raijsf.mp4",
   },
   {
@@ -154,7 +154,7 @@ const REELS: Reel[] = [
     context: "Clipping your best client wins and key moments.",
     duration: "0:53",
     thumbnail:
-      "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=900&q=80",
+      "/Thumbnails/Video6.jpg",
     videoSrc: "https://res.cloudinary.com/dlliqtujb/video/upload/v1767766977/video_6_tablzl.mp4",
   },
   {
@@ -163,7 +163,7 @@ const REELS: Reel[] = [
     context: "Short, sharp tips that boost saves and shares.",
     duration: "0:18",
     thumbnail:
-      "https://images.unsplash.com/photo-1512428559087-560fa5ceab42?auto=format&fit=crop&w=900&q=80",
+      "/Thumbnails/Video7.jpg",
     videoSrc: "https://res.cloudinary.com/dlliqtujb/video/upload/v1767768455/Video_7_1_aqsexi.mp4",
   },
   {
@@ -172,7 +172,7 @@ const REELS: Reel[] = [
     context: "Documenting how you actually work with clients.",
     duration: "0:44",
     thumbnail:
-      "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=900&q=80",
+      "/Thumbnails/Video8.jpg",
     videoSrc: "https://res.cloudinary.com/dlliqtujb/video/upload/v1767767030/Video_8_hgdqct.mp4",
   },
   {
@@ -188,7 +188,7 @@ const REELS: Reel[] = [
     title: "Community building",
     context: "Engaging directly with your audience.",
     duration: "0:35",
-    thumbnail: "https://images.unsplash.com/photo-1512428559087-560fa5ceab42?auto=format&fit=crop&w=900&q=80",
+    thumbnail: "/Thumbnails/Video10.jpg",
     videoSrc: "https://res.cloudinary.com/dlliqtujb/video/upload/v1767766977/video_10_msewkh.mp4",
   },
   {
@@ -196,7 +196,7 @@ const REELS: Reel[] = [
     title: "Strategic highlights",
     context: "Showcasing key milestones.",
     duration: "0:45",
-    thumbnail: "https://images.unsplash.com/photo-1512428559087-560fa5ceab42?auto=format&fit=crop&w=900&q=80",
+    thumbnail: "/Thumbnails/Video11.jpg",
     videoSrc: "https://res.cloudinary.com/dlliqtujb/video/upload/v1767766981/video_11_ljdgro.mp4",
   },
   {
@@ -351,11 +351,6 @@ export function ResultsSection() {
                       {/* Stronger gradient for text readability */}
                       <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent" />
 
-                      {/* REEL pill */}
-                      <span className="absolute top-4 left-4 z-20 rounded-full bg-black/70 px-3 py-1 text-[10px] uppercase tracking-wide text-white border border-white/10 backdrop-blur-sm">
-                        REEL
-                      </span>
-
                       {/* Play button – Matte Gold (No Glow) */}
                       <div className="absolute inset-0 flex items-center justify-center z-20 cursor-pointer">
                         <div className="flex h-14 w-14 items-center justify-center rounded-full bg-[#facc15] text-black text-xl shadow-sm transition-transform group-hover:scale-110">
@@ -398,9 +393,9 @@ export function ResultsSection() {
             <div className="max-w-5xl mx-auto grid gap-6 sm:grid-cols-3">
 
               <MetricCard
-                value={5}
-                suffix="M+"
-                title="Followers Gained"
+                value={1920}
+                suffix="+"
+                title="Videos Created"
                 subtitle="for our clients"
               />
 
@@ -412,10 +407,10 @@ export function ResultsSection() {
               />
 
               <MetricCard
-                value={100}
+                value={140}
                 suffix="+"
-                title="Happy Clients"
-                subtitle="we've partnered with"
+                title="Relationships Built"
+                subtitle="for our clients"
               />
 
             </div>
