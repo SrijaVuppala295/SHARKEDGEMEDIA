@@ -157,7 +157,7 @@ export function TestimonialsSection() {
                       </div>
                     </div>
 
-                    <div className="flex flex-col md:flex-row flex-1 items-center p-6 md:p-8 gap-6 md:gap-8">
+                    <div className="flex flex-col-reverse md:flex-row flex-1 items-center p-6 md:p-8 gap-6 md:gap-8">
                       {/* TEXT */}
                       <div className="flex-1 flex flex-col justify-center relative">
 
@@ -207,7 +207,7 @@ export function TestimonialsSection() {
 function TestimonialImage({ t }: { t: Testimonial }) {
   return (
     <figure
-      className={`relative w-full md:w-[360px] h-[220px] md:h-[320px] rounded-2xl shrink-0 transition-colors duration-300 bg-white/5 ${(t.id === 1 || t.id === 2) ? "bg-black/20" : ""}`}
+      className={`relative w-full md:w-[360px] h-[260px] md:h-[320px] rounded-2xl shrink-0 transition-colors duration-300 bg-white/5 ${(t.id === 1 || t.id === 2) ? "bg-black/20" : ""}`}
     >
       <div
         className="w-full h-full rounded-2xl overflow-hidden border border-white/20 shadow-lg"
