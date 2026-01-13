@@ -9,15 +9,15 @@ import { Masonry } from "@/components/ui/masonry";
 
 
 const resultsData = [
-    { src: "/results/result-01.jpg" },
-    { src: "/results/result-02.jpg" },
-    { src: "/results/result-03.jpg" },
-    { src: "/results/result-04.jpg" },
-    { src: "/results/result-05.jpg" },
-    { src: "/results/result-06.jpg" },
-    { src: "/results/result-07.jpg" },
-    { src: "/results/result-08.jpg" },
-    { src: "/results/result-09.png" },
+    { src: "/results/result-01.webp" },
+    { src: "/results/result-02.webp" },
+    { src: "/results/result-03.webp" },
+    { src: "/results/result-04.webp" },
+    { src: "/results/result-05.webp" },
+    { src: "/results/result-06.webp" },
+    { src: "/results/result-07.webp" },
+    { src: "/results/result-08.webp" },
+    { src: "/results/result-09.webp" },
 ];
 
 

@@ -29,13 +29,16 @@ export const MobileMenu = ({ className }: MobileMenuProps) => {
     <Dialog.Root modal={false} open={isOpen} onOpenChange={setIsOpen}>
       <Dialog.Trigger
         className={cn(
-          "group lg:hidden p-2 text-white transition-colors",
+          "lg:hidden p-2 text-white transition-colors",
           className
         )}
-        aria-label="Open menu"
+        aria-label={isOpen ? "Close menu" : "Open menu"}
       >
-        <Menu className="group-[[data-state=open]]:hidden" size={28} />
-        <X className="hidden group-[[data-state=open]]:block" size={28} />
+        {isOpen ? (
+          <X size={28} />
+        ) : (
+          <Menu size={28} />
+        )}
       </Dialog.Trigger>
 
       <Dialog.Portal>
@@ -56,6 +59,14 @@ export const MobileMenu = ({ className }: MobileMenuProps) => {
           className="fixed inset-0 z-50 bg-black/95 flex flex-col items-center justify-center space-y-10"
         >
           <Dialog.Title className="sr-only">Menu</Dialog.Title>
+
+          {/* Close Button */}
+          <Dialog.Close
+            className="absolute top-6 right-6 p-2 text-white hover:text-[#facc15] transition-colors duration-300"
+            aria-label="Close menu"
+          >
+            <X size={32} />
+          </Dialog.Close>
 
           <nav className="flex flex-col space-y-8 items-center">
             {menuItems.map((item) => (

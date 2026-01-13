@@ -34,7 +34,7 @@ const interLocal = localFont({
 })
 
 export const metadata: Metadata = {
-  title: 'Shark Edge Media | Personal Branding for Founders & Expert Coaches',
+  title: 'Shark Edge Media - Branding for Founders & Coaches',
   description: 'Stop being the "Invisible Expert." We build profitable personal brands for busy founders, coaches, and CEOs in just 2 hours a month. Strategy, Video, & Growth.',
   keywords: [
     'personal branding agency',
@@ -47,12 +47,21 @@ export const metadata: Metadata = {
     'thought leadership marketing',
     'Shark Edge Media'
   ],
+  metadataBase: new URL('https://sharkedge.media'),
   openGraph: {
-    title: 'Shark Edge Media | Level Up Your Personal Brand',
+    title: 'Shark Edge Media - Level Up Your Personal Brand',
     description: 'The "Anti-Hustle" branding agency. We help entrepreneurs and coaches turn their expertise into an authoritative brand with zero time wasted.',
     siteName: 'Shark Edge Media',
     locale: 'en_US',
     type: 'website',
+    images: [
+      {
+        url: '/logos/favicon.svg',
+        width: 96,
+        height: 96,
+        alt: 'Shark Edge Media Logo',
+      },
+    ],
   },
   robots: {
     index: true,
@@ -66,7 +75,9 @@ export const metadata: Metadata = {
     },
   },
   icons: {
-    icon: "/logos/favicon.png",
+    icon: "/logos/favicon.svg",
+    shortcut: "/logos/favicon.svg",
+    apple: "/logos/favicon.svg",
   }
 }
 
@@ -80,7 +91,7 @@ export default function RootLayout({
     '@type': 'MarketingAgency',
     name: 'Shark Edge Media',
     url: 'https://sharkedge.media',
-    logo: 'https://sharkedge.media/logos/favicon.png', // Using your favicon as logo
+    logo: 'https://sharkedge.media/logos/favicon.svg', // Using your favicon as logo
     description: 'Stop being the "Invisible Expert." We build profitable personal brands for busy founders, coaches, and CEOs.',
     sameAs: [
       'https://www.instagram.com/sharkedge.media', // CHANGE THIS to your real link

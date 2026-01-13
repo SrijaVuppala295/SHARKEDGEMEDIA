@@ -24,7 +24,7 @@ const testimonials: Testimonial[] = [
     id: 1,
     name: "Rosa Antonini",
     role: "Transformation Coach",
-    image: "/clients/rosa-antonini.jpg",
+    image: "/clients/rosa-antonini.webp",
     quote:
       "Consistency is the hardest thing to find in this industry, but Shark Edge nails it every time. We just wrapped up another batch of deliverables, and the workflow was seamless. I never have to micromanage or worry about deadlines. It’s a relief to have a partner I can trust completely. Already looking forward to the next project!",
     followers: "150k+ Followers",
@@ -42,7 +42,7 @@ const testimonials: Testimonial[] = [
     id: 3,
     name: "Fraser Briggs",
     role: "Fitness Coach",
-    image: "/clients/fraser-moves.png",
+    image: "/clients/fraser-moves.webp",
     quote:
       "Building a personal brand is overwhelming, but these guys made it simple. The perceived value of my brand has skyrocketed. People take me much more seriously, and my outreach response rate has doubled just because the content looks this good.",
     followers: "250k+ Followers",
@@ -51,7 +51,7 @@ const testimonials: Testimonial[] = [
     id: 4,
     name: "Alex Kahts",
     role: "Digital Marketing Expert",
-    image: "/clients/alex-kahts.png",
+    image: "/clients/alex-kahts.webp",
     quote:
       "I’ve worked with plenty of agencies before, but Shark Edge is different. They don’t just edit footage; they understand emotion, pacing, and storytelling. My latest upload kept the audience hooked until the very last second.",
     followers: "100k+ Followers",
@@ -60,7 +60,7 @@ const testimonials: Testimonial[] = [
     id: 5,
     name: "Idan Nimtsovich",
     role: "Founder, Cyber Studios",
-    image: "/clients/idan-nimtso.png",
+    image: "/clients/idan-nimtso.webp",
     quote:
       "Efficiency is everything to me. Shark Edge made complex production feel simple. We went from chaos to a streamlined content machine in weeks. It genuinely feels like an in-house team. Zero stress, zero friction.",
     followers: "75k+ Followers",

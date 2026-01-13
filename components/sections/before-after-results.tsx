@@ -47,7 +47,7 @@ const CASE_STUDIES: CaseStudy[] =
       summary:
         "Audience growth driven by consistent publishing and clearer positioning.",
 
-      avatar: "/clients/rosa-antonini.jpg"
+      avatar: "/clients/rosa-antonini.webp"
     },
 
     {
@@ -71,7 +71,7 @@ const CASE_STUDIES: CaseStudy[] =
       summary:
         "Improved reach and follower velocity through focused short-form content.",
 
-      avatar: "/clients/client-01.jpeg"
+      avatar: "/clients/client-01.webp"
     },
 
     {
@@ -95,7 +95,7 @@ const CASE_STUDIES: CaseStudy[] =
       summary:
         "Scaled from mid-size creator to massive reach through viral fitness storytelling and visual-first content.",
 
-      avatar: "/clients/client-02.png"
+      avatar: "/clients/client-02.webp"
     }
   ]
 
