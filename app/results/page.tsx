@@ -1,5 +1,5 @@
-import { ResultsSection } from "@/components/sections/results-section"
-import { BeforeAfterResults } from "@/components/sections/before-after-results"
+// import { ResultsSection } from "@/components/sections/results-section"
+// import { BeforeAfterResults } from "@/components/sections/before-after-results"
 import { Metadata } from 'next'
 
 export const metadata: Metadata = {

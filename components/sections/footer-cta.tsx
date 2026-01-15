@@ -3,7 +3,7 @@
 import Link from "next/link"
 import { FaInstagram, FaLinkedin } from "react-icons/fa"
 import { PremiumText } from "@/components/ui/premium-text"
-import { motion } from "framer-motion"
+
 
 const socialLinks = [
   {

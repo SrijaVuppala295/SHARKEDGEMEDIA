@@ -6,10 +6,7 @@ export function ProofMessageCard({
     src: string;
 }) {
     // Premium Gold Theme
-    const theme = {
-        color: "#FFD700", // Gold
-        flare: "radial-gradient(circle at top left, rgba(255, 215, 0, 0.45) 0%, rgba(255, 215, 0, 0.1) 30%, transparent 60%)",
-    };
+
 
     return (
         <div className="group relative rounded-3xl bg-black transition-all duration-300 hover:scale-[1.02] hover:shadow-[0_0_30px_-10px_rgba(255,215,0,0.3)]">

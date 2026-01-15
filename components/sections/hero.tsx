@@ -7,6 +7,17 @@ import { PremiumText } from "@/components/ui/premium-text"
 import NextImage from "next/image"
 
 
+
+interface CompanyLogo {
+  alt: string;
+  src: string;
+  height: number;
+  width: number;
+  shouldInvert?: boolean;
+  invert?: boolean;
+  original?: boolean;
+}
+
 export function Hero() {
 
   const faceImages = [
@@ -264,7 +275,7 @@ export function Hero() {
             <div className="pointer-events-none absolute right-0 top-0 z-10 h-full w-24 bg-gradient-to-l from-black to-transparent" />
 
             <InfiniteScroll speed={50} hoverSpeed={10} gap={100}>
-              {companyLogos.map((logo: any, index) => (
+              {companyLogos.map((logo: CompanyLogo, index) => (
                 <NextImage
                   key={`${logo.alt}-${index}`}
                   src={logo.src}

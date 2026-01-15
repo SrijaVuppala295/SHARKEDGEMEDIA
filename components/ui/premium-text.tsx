@@ -1,8 +1,8 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 
-interface PremiumTextProps extends React.ComponentPropsWithoutRef<any> {
+interface PremiumTextProps extends React.ComponentPropsWithoutRef<React.ElementType> {
     text: string;
     as?: React.ElementType;
     className?: string;
@@ -63,7 +63,7 @@ export function PremiumText({
         amount: 0.2
     };
 
-    const container = {
+    const container: Variants = {
         hidden: { opacity: 0 },
         visible: {
             opacity: 1,
@@ -74,7 +74,7 @@ export function PremiumText({
         },
     };
 
-    const child = {
+    const child: Variants = {
         hidden: {
             opacity: 0,
             y: 20,
@@ -86,7 +86,7 @@ export function PremiumText({
             filter: "blur(0px)",
             transition: {
                 duration: duration,
-                ease: [0.2, 0.65, 0.3, 0.9] as any,
+                ease: [0.2, 0.65, 0.3, 0.9],
             },
         },
     };
